@@ -41,6 +41,8 @@ body {
 
 .header {
     display: flex;
+    justify-content: end;
+    column-gap: calc(50% - 35rem);
     justify-content: space-between;
     background-color: rgb(57, 57, 57);
     margin-bottom: 10px;
@@ -49,7 +51,9 @@ body {
 
 .header .modalTitle {
     font-size: 50px;
+    text-align: center;
     margin: 0 auto;
+    overflow-wrap: break-word;
 }
 
 .header .closeButton {
@@ -58,11 +62,10 @@ body {
     color: red;
     border:0;
     background-color: black;
-    width: 8%;
 }
 
 .modalMain img {
-    width: 60%;
+    width: 40%;
     max-width: 100%; 
     display: block;   
     margin: 0 auto;  
@@ -76,7 +79,7 @@ body {
 }
 
 .descriptionContainer h3 {
-    font-size: 40px;
+    font-size: 30px;
     width:100%;
     height: 100%;
     background-color: rgb(57, 57, 57);
@@ -86,7 +89,9 @@ body {
 
 .descriptionContainer p {
     font-size: 24px;
+    width: 95%;
     text-align: center;
     margin: 10px 10px; 
+    overflow-wrap: break-word;
 }
 
