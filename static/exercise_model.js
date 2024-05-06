@@ -42,6 +42,15 @@ const modalController = ({ modal, btnOpen, btnClose, time = 300 }) => {
 
 modalController({
   modal: ".modalExercise",
-  btnOpen: ".openButton",
+  btnOpen: ".custom-button",
   btnClose: ".closeButton",
+});
+
+
+document.getElementById("goToMain").addEventListener("click", () => {
+  window.location.href = "/";
+});
+
+document.getElementById("restart").addEventListener("click", () => {
+  window.location.href = "workout";
 });

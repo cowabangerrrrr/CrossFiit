@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CrossFIIT</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='change.css') }}">
+        <script src="{{ url_for('static', filename='exercise_model.js') }}" defer></script>
+    </head>
+    <body class="background">
+        <div class="button-container">
+            <button id="goToMain" class="responsive-button">На главную</button>
+            <button id="restart" class="responsive-button">Рестарт</button>
+        </div>
+        <div class="new-button-group">
+            {% for record in data %}
+                <div class="button-wrapper">
+                    <button class="custom-button">
+                        <img src="../static/images/{{ record.storage }}" class="button-image">
+                        <span class="button-text">{{ record.name }}</span>
+                    </button>
+                    <button class="delete-button">
+                        <img src="../static/images/delete.png" class="delete-button">
+                    </button>
+                </div>
+                <div class="modalExercise">
+                    <div class="modalMain">
+                        <div class="header">
+                           <h2 class="modalTitle">Анжуманя</h2>
+                            <button class="closeButton">&#10006;</button>
+                        </div>
+                        <img src="../static/images/skruchivaniya-na-press.png" alt="default-img">
+            
+                        <div class="descriptionContainer">
+                            <h3>Правила выполнения</h3>
+                            <p>Упражнение нужно выполнять строго в соответствии с установленной техникой и по разрешению преподавателями</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <button class="add-button">ДОБАВИТЬ</button>
+        </div>
+        <div>
+            
+        </div>
+    </body>
+</html>
