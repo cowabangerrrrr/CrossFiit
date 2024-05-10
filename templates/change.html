@@ -7,25 +7,31 @@
         <script src="{{ url_for('static', filename='exercise_model.js') }}" defer></script>
     </head>
     <body class="background">
-        <div class="button-container">
-            <button id="goToMain" class="responsive-button">На главную</button>
-            <button id="restart" class="responsive-button">Рестарт</button>
+        <div class="menu_container">
+            <button id="goToMain" class="m_button">На главную</m_button>
+            <button id="restart" class="m_button">Рестарт</m_button>
         </div>
-        <div class="new-button-group">
+
+        <div class="exercises_container">
             {% for record in data %}
-                <div class="button-wrapper">
-                    <button class="custom-button">
-                        <img src="../static/images/{{ record.storage }}" class="button-image">
-                        <span class="button-text">{{ record.name }}</span>
+                <div class="container">
+                    <button class="ex_button" data-modal-id="{{ record.id }}">
+                        <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
+                        <span>{{ record.name }}</span>
                     </button>
-                    <button class="delete-button">
-                        <img src="../static/images/delete.png" class="delete-button">
+                    <button class="del_button">
+                      <img src="../static/images/delete.png" alt="image" class="del_img">
                     </button>
                 </div>
-                <div class="modalExercise">
+            {% endfor %}
+           <button class="st_button">ДОБАВИТЬ</button>
+        </div>
+        <div class="modal_container">
+            {% for record in data %}
+                <div class="modalExercise" id="modal{{ record.id }}">
                     <div class="modalMain">
                         <div class="header">
-                           <h2 class="modalTitle">Анжуманя</h2>
+                        <h2 class="modalTitle">{{ record.name }}</h2>
                             <button class="closeButton">&#10006;</button>
                         </div>
                         <img src="../static/images/skruchivaniya-na-press.png" alt="default-img">
@@ -37,10 +43,6 @@
                     </div>
                 </div>
             {% endfor %}
-            <button class="add-button">ДОБАВИТЬ</button>
-        </div>
-        <div>
-            
         </div>
     </body>
 </html>

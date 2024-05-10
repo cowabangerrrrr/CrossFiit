@@ -14,8 +14,8 @@ def index():
 
 @app.get('/workout')
 def workout():
-    data = [{"storage": "anschumania.png", "name": "Анжуманя"},
-            {"storage": "planka.png", "name": "Планка"}]
+    data = [{"storage": "anschumania.png", "name": "Анжуманя", "id": "1"},
+            {"storage": "planka.png", "name": "Планка", "id": "2"}]
     return render_template('change.html', data=data)
 
 @app.route('/upload_exercise', methods=['POST'])
