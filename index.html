@@ -3,12 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>CrossFIIT</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body class="background">
     <div class="button-container">
-        <button class="responsive-button">Сгенерировать программу</button>
-        <button class="responsive-button">Добавить упражнение</button>
+        <button class="generating-button">Сгенерировать программу</button>
+        <button class="adding-button">Добавить упражнение</button>
     </div>
+    <dialog class="window-adding-exercise" aria-labelledby="adding-window">
+        <div class="head-window-adding-exercise">
+            <div>
+                Добавление упражнения
+            </div>
+            <button class="close-window-adding-exercise">
+                X
+            </button>
+        </div>
+        <input class="name-exercise" type="text" value="Введите название упражнения">
+        <select name="type-exercise" class="type-exercise">
+            <option value="">Выберите группу упражнения</option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+        <div class="explanation-fields">
+            <div class="explanation-field-load-main-foto">
+                Загрузите фотографию для упражнения
+            </div>
+            <div class="explanation-field-load-instructions-foto">
+                Загрузите фото-инструкцию с техникой выполнения
+            </div>
+            <div class="explanation-field-description-exercise-technique">
+                Распишите технику выполнения упражнения
+            </div>
+        </div>
+        <div class="exercise-description-container">
+            <div class="load-main-foto">
+                <img src="/images/default-foto-download.png" alt="default-foto-download">
+                <button class="download-button">
+                    Загрузить
+                </button>
+            </div>
+            <div class="load-instructions-foto">
+                <img src="/images/default-foto-download.png" alt="default-foto-download">
+                <button class="download-button">
+                    <div class="">Загрузить</div>
+                </button>
+            </div>
+            <textarea class="description-exercise-technique">Описание</textarea>
+        </div>
+        <button class="done-button">
+            Готово
+        </button>
+    </dialog>
+    <script src="/scripts.js"></script>
 </body>
 </html>
