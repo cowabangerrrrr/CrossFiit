@@ -114,7 +114,8 @@ body, html {
     padding: 10px;
 }
 
-.modalExercise {
+.modalExercise,
+.modalExtra {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.8);
@@ -126,17 +127,28 @@ body, html {
 
 .modalMain {
     position: relative;
-    max-width: 700px;
+    max-width: 700vw;
     background-color: rgb(69, 68, 68);
     margin: auto;
     color: white;
     cursor: default;
+    display: block;
 }
 
-.header {
+.modalMainExtra {
+    position: relative;
+    max-width: 700vw;
+    background-color: rgb(69, 68, 68);
+    margin: auto;
+    color: white;
+    cursor: default;
+    display: block;
+}
+
+.modalMain .header,
+.modalMainExtra .header{
     display: flex;
     justify-content: end;
-    column-gap: calc(50% - 35rem);
     justify-content: space-between;
     background-color: rgb(57, 57, 57);
     margin-bottom: 10px;
@@ -146,7 +158,10 @@ body, html {
     font-size: 50px;
     text-align: center;
     margin: 0 auto;
+    width: 100%;
     overflow-wrap: break-word;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .header .closeButton {
@@ -185,5 +200,63 @@ body, html {
     width: 95%;
     text-align: center;
     margin: 10px 10px; 
+    overflow-wrap: break-word;
+}
+
+#exerciseName {
+    display: flex; 
+    width: 100%;
+    padding: 5px 10px; 
+    box-sizing: border-box;
+}
+
+#exerciseName input[type="text"] {
+    width: 100%;
+    padding: 2%;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(57, 57, 57);
+}
+
+.extraExercisesContainer {
+    background-color: rgba(52, 52, 52, 0.75);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-height: 60vh;
+}
+
+.extraExerciseButton {
+    display: inline-flex;
+    align-items: center;
+    font-size: 2vw;
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 98%;
+    height: 15vh; 
+    border: none;
+    margin: 1vh;
+    border-radius: 15px;
+    background-color: white; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modalExtra .modalMainExtra .extraExerciseImage {
+    margin-left: 2vw;
+    margin-right: 2vw;
+    height: 100%;
+    object-fit: contain;
+}
+
+.extraExerciseButton span {
+    text-align: center;
     overflow-wrap: break-word;
 }

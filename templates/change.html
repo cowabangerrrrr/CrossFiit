@@ -44,5 +44,24 @@
                 </div>
             {% endfor %}
         </div>
+        <div class="modalExtra">
+            <div class="modalMainExtra">
+                <div class="header">
+                    <h2 class="modalTitle">Добавление упражнения</h2>
+                    <button class="closeButton">&#10006;</button>
+                </div>
+                <label id="exerciseName" for="exerciseName">
+                    <input type="text" name="exerciseName" id="exerciseName" placeholder="Введите название упражнения"> 
+                </label><br>
+                <div class="extraExercisesContainer">
+                    {% for record in data %}
+                        <button class="extraExerciseButton">
+                            <img src="../static/images/{{ record.storage }}" alt="image" class="extraExerciseImage">
+                            <span>{{ record.name }}</span>
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </body>
 </html>

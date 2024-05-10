@@ -46,6 +46,14 @@ document.querySelectorAll(".ex_button").forEach((button) => {
     });
 });
 
+document.querySelector(".st_button").addEventListener("click", () => {
+    modalController({
+        modal: '.modalExtra',
+        btnOpen: '.st_button',
+        btnClose: ".closeButton",
+    });
+});
+
 document.getElementById("goToMain").addEventListener("click", () => {
     window.location.href = "/";
 });
