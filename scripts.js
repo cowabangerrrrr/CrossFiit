@@ -10,11 +10,10 @@ function changeGridLayout() {
         form.setAttribute('style',
         `display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 40px 30px 30px 0.5fr 1fr 0.25fr;
+        grid-template-rows: 30px 30px 0.25fr 1fr 0.25fr 1fr 0.25fr 0.5fr;
         row-gap: 10px;
         column-gap: 10px;
         grid-template-areas:
-            "header"
             "name"
             "selector"
             "first-explanatory-note"
@@ -28,11 +27,10 @@ function changeGridLayout() {
         form.setAttribute('style',
         `display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 40px 30px 30px 0.5fr 1fr 0.25fr;
+        grid-template-rows: 30px 30px 0.5fr 1fr 0.25fr;
         row-gap: 10px;
         column-gap: 10px;
         grid-template-areas:
-            "header header header"
             "name name name"
             "selector selector selector"
             "first-explanatory-note second-explanatory-note third-explanatory-note"
@@ -40,8 +38,31 @@ function changeGridLayout() {
             ". done-button .";`);
     }
     const dialog = document.body.querySelector('dialog');
-        dialog.showModal();
+    dialog.setAttribute('style', 'display: block;')
+    dialog.showModal();
 }
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    const data = serializeForm(event.target);
+    
+}
+
+function serializeForm(formNode) {
+    // const { elements } = formNode;
+    // const data = Array.from(elements)
+    //   .filter((item) => !!item.name)
+    //   .map((element) => {
+    //     const { name, value } = element;
+  
+    //     return { name, value }
+    //   });
+    const data = new FormData(formNode);
+    console.log(Array.from(data.entries()));
+
+  }
+  
+  
 
 document.body.querySelector('[class="adding-button"]')
     .addEventListener('click', () => changeGridLayout());
@@ -49,7 +70,7 @@ document.body.querySelector('[class="adding-button"]')
 document.querySelector('[class="close-window-adding-exercise"]')
     .addEventListener('click', handleCloseButton);
 
-document.querySelector('[class="done-button"]')
-    .addEventListener('click', handleCloseButton);
+const form = document.querySelector('.adding-exercise');
+form.addEventListener('click', handleFormSubmit);
 
-window.addEventListener('resize', () => changeGridLayout());
+window.addEventListener('resize', changeGridLayout);

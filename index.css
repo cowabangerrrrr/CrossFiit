@@ -52,14 +52,15 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    grid-area: header;
-    width: 100%;
     text-align: center;
+    height: 40px;
+    min-width: 160px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2em;
     font-weight: bold;
     color: aliceblue;
-    background-color: #393939
+    background-color: #393939;
+    margin-bottom: 10px;
 }
 
 .head-window-text {
@@ -74,6 +75,10 @@ body, html {
     color: #A16A6A;
     background-color: #1D1C1C;
     float: right;
+}
+
+.adding-exercise {
+    min-width: 160px;
 }
 
 .name-exercise {
@@ -112,6 +117,14 @@ body, html {
     border-color: #1D1C1C;
     margin: 0;
     padding: 10px;
+}
+
+.explanation-field-load-main-foto,
+.explanation-field-load-instructions-foto,
+.explanation-field-description-exercise-technique {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .explanation-field-load-main-foto {
@@ -182,6 +195,6 @@ img {
 }
 
 
-/* @media screen and (max-width: 450px) {
+/* @media screen and (max-width: 210px) {
     
 } */

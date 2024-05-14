@@ -12,17 +12,17 @@
         <button class="adding-button">Добавить упражнение</button>
     </div>
     <dialog class="window-adding-exercise" aria-labelledby="adding-window">
-        <form name="form-for-adding-exercise" action="" method="POST">
-            <div class="head-window-adding-exercise">
-                <div class="head-window-text">
-                    Добавление упражнения
-                </div>
-                <button class="close-window-adding-exercise">
-                    X
-                </button>
+        <div class="head-window-adding-exercise">
+            <div class="head-window-text">
+                Добавление упражнения
             </div>
-            <input class="name-exercise" type="text" value="Введите название упражнения">
-            <select name="type-exercise" class="type-exercise">
+            <button class="close-window-adding-exercise">
+                X
+            </button>
+        </div>
+        <form class="adding-exercise" name="form-for-adding-exercise" action="" method="POST">
+            <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
+            <select name="type-exercise" class="type-exercise" required>
                 <option value="">Выберите группу упражнения</option>
                 <option value=""></option>
                 <option value=""></option>
@@ -32,7 +32,7 @@
             </div>
             <div class="load-main-foto">
                 <img src="/images/default-foto-download.png" alt="default-foto-download">
-                <button class="download-button">
+                <button name="main-foto" class="download-button">
                     Загрузить
                 </button>
             </div>
@@ -41,14 +41,14 @@
             </div>
             <div class="load-instructions-foto">
                 <img src="/images/default-foto-download.png" alt="default-foto-download">
-                <button class="download-button">
+                <button name="instruction-foto" class="download-button">
                     Загрузить
                 </button>
             </div>
             <div class="explanation-field-description-exercise-technique">
                 Распишите технику выполнения упражнения
             </div>
-            <textarea class="description-exercise-technique">Описание</textarea>
+            <textarea name="description" class="description-exercise-technique" placeholder="Описание" required></textarea>
             <button class="done-button" type="submit">
                 Готово
             </button>
