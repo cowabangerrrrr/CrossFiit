@@ -193,8 +193,7 @@ img {
     color: white;
     border-radius: 25px;
     background-color: #393939;
-    border-color: rgba(173, 173, 173, 1);
-    border-width: 5px;
+    border: 5px solid rgba(173, 173, 173, 1);
     cursor: pointer;
     box-sizing: border-box;
 }
