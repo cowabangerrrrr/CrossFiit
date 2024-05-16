@@ -20,7 +20,7 @@
                 X
             </button>
         </div>
-        <form class="adding-exercise" name="form-for-adding-exercise" action="" method="POST">
+        <form class="adding-exercise" name="form-for-adding-exercise" action="" method="POST" enctype="multipart/form-data">
             <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
             <select name="type-exercise" class="type-exercise" required>
                 <option value="">Выберите группу упражнения</option>
@@ -32,18 +32,16 @@
             </div>
             <div class="load-main-foto">
                 <img src="/images/default-foto-download.png" alt="default-foto-download">
-                <button name="main-foto" class="download-button">
-                    Загрузить
-                </button>
+                <input type="file" id="main-foto" name="main-foto" class="download-button" accept="image/*" required>
+                <label for="main-foto" class="download-button">Загрузить</label>
             </div>
             <div class="explanation-field-load-instructions-foto">
                 Загрузите фото-инструкцию с техникой выполнения
             </div>
             <div class="load-instructions-foto">
                 <img src="/images/default-foto-download.png" alt="default-foto-download">
-                <button name="instruction-foto" class="download-button">
-                    Загрузить
-                </button>
+                <input type="file" id="instruction-foto" name="instruction-foto" class="download-button" accept="image/*" required>
+                <label for="instruction-foto" class="download-button">Загрузить</label>
             </div>
             <div class="explanation-field-description-exercise-technique">
                 Распишите технику выполнения упражнения
