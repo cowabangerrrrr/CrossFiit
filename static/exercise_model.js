@@ -26,7 +26,10 @@ const modalController = ({ modal, btnOpen, btnClose, time = 300 }) => {
         }
     };
 
-    const openModal = () => {
+    const openModal = async () => {
+        const response = await fetch('/get_exercise')
+        const temp = await response.json();
+        console.log(temp.ok);
         modalElem.style.visibility = "visible";
         modalElem.style.opacity = 1;
         window.addEventListener("keydown", closeModal);
@@ -46,12 +49,10 @@ document.querySelectorAll(".ex_button").forEach((button) => {
     });
 });
 
-document.querySelector(".st_button").addEventListener("click", () => {
-    modalController({
-        modal: '.modalExtra',
-        btnOpen: '.st_button',
-        btnClose: ".closeButton",
-    });
+modalController({
+    modal: '.modalExtra',
+    btnOpen: '.st_button',
+    btnClose: ".closeButton",
 });
 
 document.getElementById("goToMain").addEventListener("click", () => {

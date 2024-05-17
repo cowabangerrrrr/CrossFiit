@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, request, jsonify
 from flask_debug import Debug
 from werkzeug.utils import secure_filename
+from exercise_handler import ExerciseHandler
 
 
 app = Flask(__name__)
