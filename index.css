@@ -1,0 +1,487 @@
+/* .background {
+    background-image: url('images/background-index.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40%;
+    width: 90%;
+    max-width: 512px;
+}
+
+.generating-button, .adding-button {
+    height: 85px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-radius: 25px;
+    background-color: #393939;
+    border-color: rgba(173, 173, 173, 1);
+    border-width: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.generating-button:hover, .adding-button:hover {
+    transform: scale(1.1);
+}
+
+.window-adding-exercise {
+    width: 90%;
+    padding: 10px;
+    border: 0;
+    background-color: #575757;
+}
+
+.head-window-adding-exercise{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 40px;
+    min-width: 160px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: aliceblue;
+    background-color: #393939;
+    margin-bottom: 10px;
+}
+
+.head-window-text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.close-window-adding-exercise {
+    justify-self: end;
+    height: 100%;
+    width: 45px;
+    color: #A16A6A;
+    background-color: #1D1C1C;
+    float: right;
+}
+
+.adding-exercise {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 30px 30px 0.5fr 1fr 0.25fr;
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-areas:
+        "name name name"
+        "selector selector selector"
+        "first-explanatory-note second-explanatory-note third-explanatory-note"
+        "first-download-block second-download-block description-block"
+        ". done-button .";
+    min-width: 160px;
+    width: 100%;
+}
+
+.name-exercise {
+    grid-area: name;
+    box-sizing: border-box;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background-color: #393939;
+    border: 0;
+}
+
+.type-exercise {
+    grid-area: selector;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background-color: #393939;
+    border: 0;
+}
+
+.explanation-field-load-main-foto,
+.explanation-field-load-instructions-foto,
+.explanation-field-description-exercise-technique,
+.load-main-foto,
+.load-instructions-foto,
+.description-exercise-technique {
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background-color: #393939;
+    border-color: #1D1C1C;
+    margin: 0;
+    padding: 10px;
+}
+
+#main-foto,
+#instruction-foto {
+    display: none;
+}
+
+.explanation-field-load-main-foto,
+.explanation-field-load-instructions-foto,
+.explanation-field-description-exercise-technique {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.explanation-field-load-main-foto {
+    grid-area: first-explanatory-note;
+}
+
+.explanation-field-load-instructions-foto {
+    grid-area: second-explanatory-note;
+}
+
+.explanation-field-description-exercise-technique {
+    grid-area: third-explanatory-note;
+}
+
+.load-main-foto,
+.load-instructions-foto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.load-main-foto {
+    grid-area: first-download-block;
+}
+
+.load-instructions-foto {
+    grid-area: second-download-block;
+}
+
+.description-exercise-technique {
+    text-align: start;
+    grid-area: description-block;
+    resize: none;
+}
+
+img {
+    width: 100%;
+}
+
+.download-button {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-radius: 25px;
+    background-color: #393939;
+    border: 5px solid rgba(173, 173, 173, 1);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.done-button {
+    grid-area: done-button;
+    align-self: center;
+    text-align: center;
+    padding: 0.5em 1em;
+    font-size: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-radius: 25px;
+    background-color: #393939;
+    border-color: rgba(173, 173, 173, 1);
+    border-width: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 450px) {
+    .adding-exercise {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30px 30px 0.25fr 1fr 0.25fr 1fr 0.25fr 0.5fr;
+        row-gap: 10px;
+        column-gap: 10px;
+        grid-template-areas:
+            "name"
+            "selector"
+            "first-explanatory-note"
+            "first-download-block"
+            "second-explanatory-note"
+            "second-download-block"
+            "third-explanatory-note"
+            "description-block"
+            "done-button";
+    }
+    .button-container {
+        width: 100%;
+    }
+    .generating-button, .adding-button {
+        font-size: 24px;
+    }
+} */
+
+.background {
+    background-image: url('static/images/background-index.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40%;
+    width: 90%;
+    max-width: 512px;
+}
+
+.generating-button, .adding-button {
+    height: 85px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-radius: 25px;
+    background-color: #393939;
+    border-color: rgba(173, 173, 173, 1);
+    border-width: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.generating-button:hover, .adding-button:hover {
+    transform: scale(1.1);
+}
+
+.window-adding-exercise {
+    width: 90%;
+    padding: 10px;
+    border: 0;
+    background-color: #575757;
+}
+
+.head-window-adding-exercise{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 40px;
+    min-width: 160px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: aliceblue;
+    background-color: #393939;
+    margin-bottom: 10px;
+}
+
+.head-window-text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.close-window-adding-exercise {
+    justify-self: end;
+    height: 100%;
+    width: 45px;
+    color: #A16A6A;
+    background-color: #1D1C1C;
+    float: right;
+}
+
+.adding-exercise {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 30px 30px 0.5fr 1fr 0.25fr;
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-areas:
+        "name name name"
+        "selector selector selector"
+        "first-explanatory-note second-explanatory-note third-explanatory-note"
+        "first-download-block second-download-block description-block"
+        ". done-button .";
+    min-width: 160px;
+    width: 100%;
+}
+
+.name-exercise {
+    grid-area: name;
+    box-sizing: border-box;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background-color: #393939;
+    border: 0;
+}
+
+.type-exercise {
+    grid-area: selector;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background-color: #393939;
+    border: 0;
+}
+
+.explanation-field-load-main-foto,
+.explanation-field-load-instructions-foto,
+.explanation-field-description-exercise-technique,
+.load-main-foto,
+.load-instructions-foto,
+.description-exercise-technique {
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background-color: #393939;
+    border-color: #1D1C1C;
+    margin: 0;
+    padding: 10px;
+}
+
+#main-foto,
+#instruction-foto {
+    display: none;
+}
+
+.explanation-field-load-main-foto,
+.explanation-field-load-instructions-foto,
+.explanation-field-description-exercise-technique {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.explanation-field-load-main-foto {
+    grid-area: first-explanatory-note;
+}
+
+.explanation-field-load-instructions-foto {
+    grid-area: second-explanatory-note;
+}
+
+.explanation-field-description-exercise-technique {
+    grid-area: third-explanatory-note;
+}
+
+.load-main-foto,
+.load-instructions-foto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.load-main-foto {
+    grid-area: first-download-block;
+}
+
+.load-instructions-foto {
+    grid-area: second-download-block;
+}
+
+.description-exercise-technique {
+    text-align: start;
+    grid-area: description-block;
+    resize: none;
+}
+
+img {
+    width: 100%;
+}
+
+.download-button {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-radius: 25px;
+    background-color: #393939;
+    border: 5px solid rgba(173, 173, 173, 1);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.done-button {
+    grid-area: done-button;
+    align-self: center;
+    text-align: center;
+    padding: 0.5em 1em;
+    font-size: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-radius: 25px;
+    background-color: #393939;
+    border-color: rgba(173, 173, 173, 1);
+    border-width: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 450px) {
+    .adding-exercise {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30px 30px 0.25fr 1fr 0.25fr 1fr 0.25fr 0.5fr;
+        row-gap: 10px;
+        column-gap: 10px;
+        grid-template-areas:
+            "name"
+            "selector"
+            "first-explanatory-note"
+            "first-download-block"
+            "second-explanatory-note"
+            "second-download-block"
+            "third-explanatory-note"
+            "description-block"
+            "done-button";
+    }
+    .button-container {
+        width: 100%;
+    }
+    .generating-button, .adding-button {
+        font-size: 24px;
+    }
+}
