@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form[name="form-for-adding-exercise"]');
-    const dialog = document.querySelector('dialog.window-adding-exercise');
+    const form = document.querySelector('.adding-exercise');
+    const dialog = document.querySelector('.window-adding-exercise');
     const addButton = document.querySelector('.adding-button');
     const closeButton = document.querySelector('.close-window-adding-exercise');
     const mainFotoInput = document.getElementById('main-foto');
@@ -81,20 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const instructionFotoImg = document.querySelector('.load-instructions-foto img');
     let data = {};
 
-    // Open the dialog
     addButton.addEventListener('click', () => {
         dialog.showModal();
     });
 
-    // Close the dialog and reset the form
     closeButton.addEventListener('click', () => {
         form.reset();
-        mainFotoImg.src = '/images/default-foto-download.png'; // Reset to default image
-        instructionFotoImg.src = '/images/default-foto-download.png'; // Reset to default image
+        mainFotoImg.src = '/images/default-foto-download.png';
+        instructionFotoImg.src = '/images/default-foto-download.png';
         dialog.close();
     });
 
-    // Handle file upload and preview
     const handleFileUpload = (input, imgElement, key) => {
         input.addEventListener('change', () => {
             const file = input.files[0];
@@ -115,23 +112,20 @@ document.addEventListener('DOMContentLoaded', () => {
     handleFileUpload(mainFotoInput, mainFotoImg, 'mainFoto');
     handleFileUpload(instructionFotoInput, instructionFotoImg, 'instructionFoto');
 
-    // Handle form submission
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const formData = new FormData(form);
 
-        // Convert form data to JSON
         const json = {};
         formData.forEach((value, key) => {
             if (value instanceof File) {
-                json[key] = value.name; // Store file name (you might want to handle file uploads separately)
+                json[key] = value.name;
             } else {
                 json[key] = value;
             }
         });
 
-        // Example: sending the files and JSON data to the server
         const fileData = new FormData();
         fileData.append('main-foto', formData.get('main-foto'));
         fileData.append('instruction-foto', formData.get('instruction-foto'));
@@ -146,10 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 const result = await response.json();
                 console.log('Success:', result);
-                form.reset(); // Reset form after successful submission
-                mainFotoImg.src = '/images/default-foto-download.png'; // Reset to default image
-                instructionFotoImg.src = '/images/default-foto-download.png'; // Reset to default image
-                dialog.close(); // Close dialog on success
+                form.reset();
+                mainFotoImg.src = '/images/default-foto-download.png';
+                instructionFotoImg.src = '/images/default-foto-download.png';
+                dialog.close();
             } else {
                 console.error('Error:', response.statusText);
             }
