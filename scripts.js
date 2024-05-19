@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeButton.addEventListener('click', () => {
         form.reset();
-        mainFotoImg.src = '/images/default-foto-download.png';
-        instructionFotoImg.src = '/images/default-foto-download.png';
+        mainFotoImg.src = 'static/images/default-foto-download.png';
+        instructionFotoImg.src = 'static/images/default-foto-download.png';
         dialog.close();
     });
 
