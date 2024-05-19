@@ -1,3 +1,12 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class Exercise:
-    def __init__(self) -> None:
-        pass
+    id: str
+    name: str
+    description: str
+    muscle_group: int
+    main_photo: str
+    second_photo: str
+

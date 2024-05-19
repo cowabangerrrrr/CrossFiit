@@ -13,10 +13,10 @@
         </div>
 
         <div class="exercises_container">
-            {% for record in data %}
+            {% for record in serie %}
                 <div class="container">
                     <button class="ex_button" data-modal-id="{{ record.id }}">
-                        <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
+                        <img src="../static/images/{{ record.main_photo }}" alt="image" class="ex_image">
                         <span>{{ record.name }}</span>
                     </button>
                     <button class="del_button">
@@ -27,7 +27,7 @@
            <button class="st_button">ДОБАВИТЬ</button>
         </div>
         <div class="modal_container">
-            {% for record in data %}
+            {% for record in serie %}
                 <div class="modalExercise" id="modal{{ record.id }}">
                     <div class="modalMain">
                         <div class="header">
@@ -38,7 +38,7 @@
             
                         <div class="descriptionContainer">
                             <h3>Правила выполнения</h3>
-                            <p>Упражнение нужно выполнять строго в соответствии с установленной техникой и по разрешению преподавателями</p>
+                            <p>{{ record.description }}</p>
                         </div>
                     </div>
                 </div>
@@ -54,9 +54,9 @@
                     <input type="text" name="exerciseName" id="exerciseName" placeholder="Введите название упражнения"> 
                 </label><br>
                 <div class="extraExercisesContainer">
-                    {% for record in data %}
+                    {% for record in exercises %}
                         <button class="extraExerciseButton">
-                            <img src="../static/images/{{ record.storage }}" alt="image" class="extraExerciseImage">
+                            <img src="../static/images/{{ record.second_photo }}" alt="image" class="extraExerciseImage">
                             <span>{{ record.name }}</span>
                         </button>
                     {% endfor %}

@@ -1,31 +1,42 @@
-from exercise import Exercise
 from database import Database
+from exercise import Exercise
+
+MAX_SERIE_NUMBER = 1
+database = Database('data/crossfiit.db')
+
+def get_exercise_by_id(id: int) -> Exercise:
+    exercise = database.select(
+        f'''
+SELECT * 
+FROM {database.exercises_table_name}
+WHERE id = (?)
+        ''', (id,))
+    
+    return Exercise(*exercise[0])
 
 
-class ExerciseHandler:
-    database = Database('data/crossfiit.db')
+def get_all_exercises() -> list[Exercise]:
+    exercises = database.select(
+        f'''
+SELECT * 
+FROM {database.exercises_table_name}
+        ''', tuple())
     
-    def get_exercise_by_id(id: int):
-        exercise = ExerciseHandler.database.select(
-            '''
-            SELECT * 
-            FROM exercises
-            JOIN exercises_photos
-            ON exercises.id = exercises_photos.id_exercise
-            JOIN photos
-            ON exercises_photos.id_photo = photos.id
-            WHERE exercises.id = (?)
-            ''', (id,))
-        a = 0
+    return [Exercise(*exercise) for exercise in exercises]
+
+
+def get_exercise_serie(serie_num: int) -> list[Exercise]:
+    serie = database.select(
+        f'''
+SELECT id, name, description, muscle_group, main_photo, second_photo
+FROM {database.exercises_serie_table_name}
+LEFT OUTER JOIN {database.exercises_table_name}
+ON id = exercise_id
+WHERE serie = (?)
+        ''', (serie_num,))
     
-    def get_exercise_serie(serie_num):
-        serie = ExerciseHandler.database.select(
-            '''
-            SELECT * 
-            FROM exercises
-            JOIN exercises_photos
-            ON exercises.id = exercises_photos.id_exercise
-            JOIN photos
-            ON exercises_photos.id_photo = photos.id
-            WHERE exercises.serie_number = (?)
-            ''', (serie_num,))
+    return [Exercise(*exercise) for exercise in serie]
+
+
+def exercize(data):
+    pass

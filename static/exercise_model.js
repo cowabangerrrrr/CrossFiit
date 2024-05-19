@@ -27,9 +27,6 @@ const modalController = ({ modal, btnOpen, btnClose, time = 300 }) => {
     };
 
     const openModal = async () => {
-        const response = await fetch('/get_exercise')
-        const temp = await response.json();
-        console.log(temp.ok);
         modalElem.style.visibility = "visible";
         modalElem.style.opacity = 1;
         window.addEventListener("keydown", closeModal);

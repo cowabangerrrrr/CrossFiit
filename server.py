@@ -3,7 +3,8 @@ import os
 from flask import Flask, render_template, request, jsonify
 from flask_debug import Debug
 from werkzeug.utils import secure_filename
-from exercise_handler import ExerciseHandler
+from exercise_handler import *
+from random import randint
 
 
 app = Flask(__name__)
@@ -15,9 +16,9 @@ def index():
 
 @app.get('/workout')
 def workout():
-    data = [{"storage": "anschumania.png", "name": "Анжуманя", "id": "1"},
-            {"storage": "planka.png", "name": "Планка", "id": "2"}]
-    return render_template('change.html', data=data)
+    serie = get_exercise_serie(randint(1, MAX_SERIE_NUMBER))
+    all_exercises = get_all_exercises()
+    return render_template('change.html', serie=serie, exercises=all_exercises)
 
 @app.route('/upload_exercise', methods=['POST'])
 def upload_exrecise():
