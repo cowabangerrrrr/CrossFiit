@@ -14,7 +14,14 @@ class Database:
         self.cursor.execute(
             f'''
 CREATE TABLE IF NOT EXISTS {Database.exercises_table_name} 
-(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, description TEXT, muscle_group INTEGER NOT NULL, main_photo TEXT, second_photo TEXT);
+    (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        description TEXT,
+        muscle_group INTEGER NOT NULL,
+        main_photo TEXT,
+        second_photo TEXT
+     );
             ''')
         self.cursor.execute(
             f'''
@@ -23,7 +30,8 @@ CREATE TABLE IF NOT EXISTS {Database.exercises_serie_table_name}
             ''')
 
     def insert(self, query, data):
-        pass
+        self.cursor.execute(query, data)
+        self.conn.commit()
 
     def select(self, query, data):
         self.cursor.execute(query, data)

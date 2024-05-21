@@ -9,4 +9,3 @@ class Exercise:
     muscle_group: int
     main_photo: str
     second_photo: str
-
