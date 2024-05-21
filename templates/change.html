@@ -11,29 +11,8 @@
             {% for record in serie %}
                 <div class="container">
                     <button class="ex_button" data-modal-id="{{ record.id }}">
-                        <img src="../static/images/{{ record.main_photo }}" alt="image" class="ex_image">
+                        <img src="../static/images/{{ record.main_photo_path }}" alt="image" class="ex_image">
                         <span>{{ record.name }}</span>
-                    </button>
-                    <button class="del_button">&#10006;</button>
-                </div>
-                <div class="container">
-                    <button class="ex_button" data-modal-id="{{ record.id }}">
-                        <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
-                        <span>Фронтальный присед со штангой + что-то ещё</span>
-                    </button>
-                    <button class="del_button">&#10006;</button>
-                </div>
-                <div class="container">
-                    <button class="ex_button" data-modal-id="{{ record.id }}">
-                        <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
-                        <span>Фронтальный присед со штангой + что-то ещё</span>
-                    </button>
-                    <button class="del_button">&#10006;</button>
-                </div>
-                <div class="container">
-                    <button class="ex_button" data-modal-id="{{ record.id }}">
-                        <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
-                        <span>Фронтальный присед со штангой + что-то ещё</span>
                     </button>
                     <button class="del_button">&#10006;</button>
                 </div>
@@ -70,9 +49,9 @@
                 </div>
                 <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
                 <div class="extraExercisesContainer">
-                    {% for record in data %}
+                    {% for record in exercises %}
                         <button class="extraExerciseButton"  id="{{ record.id }}">
-                            <img src="../static/images/{{ record.second_photo }}" alt="image" class="extraExerciseImage">
+                            <img src="../static/images/{{ record.second_photo_path }}" alt="image" class="extraExerciseImage">
                             <span>{{ record.name }}</span>
                         </button>
                     {% endfor %}

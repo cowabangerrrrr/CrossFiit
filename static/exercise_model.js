@@ -84,7 +84,7 @@ document.querySelectorAll(".del_button").forEach((button) => {
 
 
 const exercisesIdsToAdd = [1, 2, 22];
-const addExercisesButton = document.querySelector('.addExercisesButton');
+const addExercisesButton = document.querySelector('.save_button');
 addExercisesButton.addEventListener('click', async () => {
     const exerciseContainer = document.querySelector('.exercises_container');
     const addButton = exerciseContainer.querySelector('.st_button');
@@ -101,18 +101,16 @@ addExercisesButton.addEventListener('click', async () => {
         container.className = 'container';
         container.innerHTML = 
         `
-        <div class="container">
-            <button class="ex_button" data-modal-id="${exerciseData.id}">
-                <img src="../static/images/${exerciseData.main_photo_path}" alt="image" class="ex_image">
-                <span>${exerciseData.name}</span>
-            </button>
-            <button class="del_button">
-                <img src="../static/images/delete.png" alt="image" class="del_img">
-            </button>
-        </div>
+        <button class="ex_button" data-modal-id="${exerciseData.id}">
+            <img src="../static/images/${exerciseData.main_photo_path}" alt="image" class="ex_image">
+            <span>${exerciseData.name}</span>
+        </button>
+        <button class="del_button">&#10006;</button>
         `;
         exerciseContainer.insertBefore(container, addButton);
     }
+});
+
 const exercises = [];
 const extraExerciseButtons = document.querySelectorAll('.extraExerciseButton');
 const saveButton = document.querySelector('.save_button');
