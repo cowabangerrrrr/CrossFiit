@@ -41,8 +41,8 @@ def upload_exercise():
                             exercise.name,
                             exercise.description,
                             exercise.muscle_group,
-                            exercise.main_photo,
-                            exercise.second_photo
+                            exercise.main_photo_path,
+                            exercise.second_photo_path
                         )
                     )
 
