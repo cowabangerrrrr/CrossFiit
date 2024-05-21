@@ -20,6 +20,7 @@ const modalController = ({ modal, btnOpen, btnClose, time = 300 }) => {
 
             setTimeout(() => {
                 modalElem.style.visibility = "hidden";
+                modalElem.style.display = "none";
             }, time);
 
             window.removeEventListener("keydown", closeModal);
@@ -27,9 +28,20 @@ const modalController = ({ modal, btnOpen, btnClose, time = 300 }) => {
     };
 
     const openModal = () => {
+        modalElem.style.display = "flex";
         modalElem.style.visibility = "visible";
         modalElem.style.opacity = 1;
         window.addEventListener("keydown", closeModal);
+        if (btnOpen === '.st_button'){
+            exercises.forEach(exerciseId => {
+                const button = document.getElementById(exerciseId);
+                if (button) {
+                    button.style.background = 'white';
+                }
+            });
+            exercises.length = 0;
+            saveButton.style.display = 'none';
+        }
     };
 
     buttonElem.addEventListener("click", openModal);
@@ -46,12 +58,10 @@ document.querySelectorAll(".ex_button").forEach((button) => {
     });
 });
 
-document.querySelector(".st_button").addEventListener("click", () => {
-    modalController({
-        modal: '.modalExtra',
-        btnOpen: '.st_button',
-        btnClose: ".closeButton",
-    });
+modalController({
+    modal: '.modalExtra',
+    btnOpen: '.st_button',
+    btnClose: ".closeButton",
 });
 
 document.getElementById("goToMain").addEventListener("click", () => {
@@ -70,4 +80,30 @@ document.querySelectorAll(".del_button").forEach((button) => {
             container.remove();
         }
     });
+});
+
+
+const exercises = [];
+const extraExerciseButtons = document.querySelectorAll('.extraExerciseButton');
+const saveButton = document.querySelector('.save_button');
+
+extraExerciseButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const id = button.id;
+        if (exercises.includes(id)) {
+            const ind = exercises.indexOf(id);
+            exercises.splice(ind, 1);
+            button.style.background = 'white';
+        } else {
+            exercises.push(id);
+            button.style.background = '#393939';
+        }
+        saveButton.style.display = exercises.length > 0 ? 'block' : 'none';
+    });
+});
+
+saveButton.addEventListener('click', () => {
+    console.log(exercises);
+    const modalExtra = document.querySelector('.modalExtra');
+    modalExtra.style.display = 'none';
 });

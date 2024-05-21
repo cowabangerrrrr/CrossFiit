@@ -7,11 +7,6 @@
         <script src="{{ url_for('static', filename='exercise_model.js') }}" defer></script>
     </head>
     <body class="background">
-        <div class="menu_container">
-            <button id="goToMain" class="m_button">На главную</m_button>
-            <button id="restart" class="m_button">Рестарт</m_button>
-        </div>
-
         <div class="exercises_container">
             {% for record in data %}
                 <div class="container">
@@ -19,12 +14,35 @@
                         <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
                         <span>{{ record.name }}</span>
                     </button>
-                    <button class="del_button">
-                      <img src="../static/images/delete.png" alt="image" class="del_img">
+                    <button class="del_button">&#10006;</button>
+                </div>
+                <div class="container">
+                    <button class="ex_button" data-modal-id="{{ record.id }}">
+                        <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
+                        <span>Фронтальный присед со штангой + что-то ещё</span>
                     </button>
+                    <button class="del_button">&#10006;</button>
+                </div>
+                <div class="container">
+                    <button class="ex_button" data-modal-id="{{ record.id }}">
+                        <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
+                        <span>Фронтальный присед со штангой + что-то ещё</span>
+                    </button>
+                    <button class="del_button">&#10006;</button>
+                </div>
+                <div class="container">
+                    <button class="ex_button" data-modal-id="{{ record.id }}">
+                        <img src="../static/images/{{ record.storage }}" alt="image" class="ex_image">
+                        <span>Фронтальный присед со штангой + что-то ещё</span>
+                    </button>
+                    <button class="del_button">&#10006;</button>
                 </div>
             {% endfor %}
            <button class="st_button">ДОБАВИТЬ</button>
+        </div>
+        <div class="menu_container">
+            <button id="goToMain" class="m_button">На главную</m_button>
+            <button id="restart" class="m_button">Рестарт</m_button>
         </div>
         <div class="modal_container">
             {% for record in data %}
@@ -50,17 +68,16 @@
                     <h2 class="modalTitle">Добавление упражнения</h2>
                     <button class="closeButton">&#10006;</button>
                 </div>
-                <label id="exerciseName" for="exerciseName">
-                    <input type="text" name="exerciseName" id="exerciseName" placeholder="Введите название упражнения"> 
-                </label><br>
+                <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
                 <div class="extraExercisesContainer">
                     {% for record in data %}
-                        <button class="extraExerciseButton">
+                        <button class="extraExerciseButton"  id="{{ record.id }}">
                             <img src="../static/images/{{ record.storage }}" alt="image" class="extraExerciseImage">
                             <span>{{ record.name }}</span>
                         </button>
                     {% endfor %}
                 </div>
+                <button class="save_button">СОХРАНИТЬ</button>
             </div>
         </div>
     </body>
