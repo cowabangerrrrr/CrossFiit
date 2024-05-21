@@ -1,3 +1,9 @@
+var button = document.querySelector(".generating-button");
+
+button.addEventListener("click", function() {
+    window.location.href = "workout";
+});
+
 function handleCloseButton() {
     const dialog = document.body.querySelector('dialog');
     dialog.setAttribute('style', 'display: none;');
