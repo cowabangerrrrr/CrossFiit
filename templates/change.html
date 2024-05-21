@@ -55,12 +55,13 @@
                 </label><br>
                 <div class="extraExercisesContainer">
                     {% for record in exercises %}
-                        <button class="extraExerciseButton">
+                        <button class="extraExerciseButton" id = {{ record.id }}>
                             <img src="../static/images/{{ record.second_photo }}" alt="image" class="extraExerciseImage">
                             <span>{{ record.name }}</span>
                         </button>
                     {% endfor %}
                 </div>
+                <button class="addExercisesButton">Добавить</button>
             </div>
         </div>
     </body>

@@ -40,6 +40,10 @@ def upload_exrecise():
     else:
         return jsonify({'error': 'Missing image or name'})
 
+@app.route('/get_exercise/<int:id>', methods=['GET'])
+def get_exercise(id):
+    exercise_data = get_exercise_by_id(id)
+    return jsonify(exercise_data)
 
 if __name__ == '__main__':
     app.run(debug=True)

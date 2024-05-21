@@ -69,3 +69,36 @@ document.querySelectorAll(".del_button").forEach((button) => {
         }
     });
 });
+
+
+const exercisesIdsToAdd = [1, 2, 22];
+const addExercisesButton = document.querySelector('.addExercisesButton');
+addExercisesButton.addEventListener('click', async () => {
+    const exerciseContainer = document.querySelector('.exercises_container');
+    const addButton = exerciseContainer.querySelector('.st_button');
+    for (const id of exercisesIdsToAdd) {
+        const a = exerciseContainer.querySelector(`.ex_button[data-modal-id="${id}"]`);
+        if (a) {
+            continue;
+        }
+
+        const response = await fetch(`/get_exercise/${id}`);
+        const exerciseData = await response.json();
+
+        const container = document.createElement('div');
+        container.className = 'container';
+        container.innerHTML = 
+        `
+        <div class="container">
+            <button class="ex_button" data-modal-id="${exerciseData.id}">
+                <img src="../static/images/${exerciseData.main_photo_path}" alt="image" class="ex_image">
+                <span>${exerciseData.name}</span>
+            </button>
+            <button class="del_button">
+                <img src="../static/images/delete.png" alt="image" class="del_img">
+            </button>
+        </div>
+        `;
+        exerciseContainer.insertBefore(container, addButton);
+    }
+});
