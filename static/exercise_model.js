@@ -72,7 +72,7 @@ document.getElementById("restart").addEventListener("click", () => {
     window.location.href = "workout";
 });
 
-document.querySelectorAll(".del_button").forEach((button) => {
+function deleteExercise(button){
     button.addEventListener("click", () => {
         const confirmDelete = confirm("Вы действительно хотите удалить упражнение?");
         if (confirmDelete) {
@@ -80,17 +80,17 @@ document.querySelectorAll(".del_button").forEach((button) => {
             container.remove();
         }
     });
-});
+}
 
+document.querySelectorAll(".del_button").forEach(deleteExercise);
 
-const exercisesIdsToAdd = [1, 2, 22];
+const exercises = [];
 const addExercisesButton = document.querySelector('.save_button');
 addExercisesButton.addEventListener('click', async () => {
     const exerciseContainer = document.querySelector('.exercises_container');
     const addButton = exerciseContainer.querySelector('.st_button');
-    for (const id of exercisesIdsToAdd) {
-        const a = exerciseContainer.querySelector(`.ex_button[data-modal-id="${id}"]`);
-        if (a) {
+    for (const id of exercises) {
+        if (exerciseContainer.querySelector(`.ex_button[data-modal-id="${id}"]`)) {
             continue;
         }
 
@@ -107,11 +107,11 @@ addExercisesButton.addEventListener('click', async () => {
         </button>
         <button class="del_button">&#10006;</button>
         `;
+        deleteExercise(container.querySelector('.del_button'));
         exerciseContainer.insertBefore(container, addButton);
     }
 });
 
-const exercises = [];
 const extraExerciseButtons = document.querySelectorAll('.extraExerciseButton');
 const saveButton = document.querySelector('.save_button');
 
