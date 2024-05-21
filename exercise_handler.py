@@ -1,7 +1,7 @@
 from database import Database
 from exercise import Exercise
 
-MAX_SERIE_NUMBER = 1
+MAX_SERIE_NUMBER = 4
 database = Database('data/crossfiit.db')
 MAPPING_EXERCISES = {
 
