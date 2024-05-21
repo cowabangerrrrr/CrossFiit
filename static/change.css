@@ -13,12 +13,6 @@ body, html {
     display: flex;
     flex-direction: column;
     margin: 0
-    /* display: grid;
-    grid-template-rows: 80vh 20vh;
-    grid-template-areas: "context" "buttons";
-    grid-template-columns: 100%;
-    margin: 0;
-    gap: 0; */
 }
 
 .menu_container{
@@ -80,7 +74,6 @@ body, html {
     grid-area: exercise;
     grid-template-columns: 35% 65%;
     grid-template-areas: "icon name";
-    grid-template-rows: 100%;
     grid-template-rows: max(10vh, 6vw);
     box-sizing: border-box;
     padding: 0;
