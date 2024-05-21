@@ -88,6 +88,7 @@ const exercises = [];
 const addExercisesButton = document.querySelector('.save_button');
 addExercisesButton.addEventListener('click', async () => {
     const exerciseContainer = document.querySelector('.exercises_container');
+    const modalContainer = document.querySelector('.modal_container');
     const addButton = exerciseContainer.querySelector('.st_button');
     for (const id of exercises) {
         if (exerciseContainer.querySelector(`.ex_button[data-modal-id="${id}"]`)) {
@@ -107,8 +108,34 @@ addExercisesButton.addEventListener('click', async () => {
         </button>
         <button class="del_button">&#10006;</button>
         `;
-        deleteExercise(container.querySelector('.del_button'));
+
+        const modalWindowForContainer = document.createElement('div');
+        modalWindowForContainer.className = 'modalExercise';
+        modalWindowForContainer.id = `modal${exerciseData.id}`;
+        modalWindowForContainer.innerHTML = 
+        `
+        <div class="modalMain">
+            <div class="header">
+            <h2 class="modalTitle">${exerciseData.name}</h2>
+                <button class="closeButton">&#10006;</button>
+            </div>
+            <img src="../static/images/${exerciseData.second_photo_path}" alt="default-img">
+
+            <div class="descriptionContainer">
+                <h3>Правила выполнения</h3>
+                <p>${exerciseData.description}</p>
+            </div>
+        </div>
+        `;
         exerciseContainer.insertBefore(container, addButton);
+        modalContainer.appendChild(modalWindowForContainer);
+
+        modalController({
+            modal: `#modal${exerciseData.id}`,
+            btnOpen: `.ex_button[data-modal-id="${exerciseData.id}"]`,
+            btnClose: ".closeButton",
+        });
+        deleteExercise(container.querySelector('.del_button'));
     }
 });
 
