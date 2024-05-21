@@ -4,12 +4,54 @@
     <meta charset="UTF-8">
     <title>CrossFIIT</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-<body class="background">
+<body class="background" style="background-image: url('static/images/background-index.png');">
     <div class="button-container">
-        <button id="goToProgram" class="responsive-button">Сгенерировать программу</button>
-        <button id="goToAdding" class="responsive-button">Добавить упражнение</button>
+        <button class="generating-button">Сгенерировать программу</button>
+        <button class="adding-button">Добавить упражнение</button>
     </div>
-    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <dialog class="window-adding-exercise" aria-labelledby="adding-window">
+        <div class="head-window-adding-exercise">
+            <div class="head-window-text">
+                Добавление упражнения
+            </div>
+            <button class="close-window-adding-exercise">
+                X
+            </button>
+        </div>
+        <form class="adding-exercise" name="form-for-adding-exercise" action="" method="POST" enctype="multipart/form-data">
+            <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
+            <select name="type-exercise" class="type-exercise" required>
+                <option value="">Выберите группу упражнения</option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <div class="explanation-field-load-main-foto">
+                Загрузите фотографию для упражнения
+            </div>
+            <div class="load-main-foto">
+                <img src="static/images/default-foto-download.png" alt="default-foto-download">
+                <input type="file" id="main-foto" name="main-foto" class="download-button" accept="image/*" required>
+                <label for="main-foto" class="download-button">Загрузить</label>
+            </div>
+            <div class="explanation-field-load-instructions-foto">
+                Загрузите фото-инструкцию с техникой выполнения
+            </div>
+            <div class="load-instructions-foto">
+                <img src="static/images/default-foto-download.png" alt="default-foto-download">
+                <input type="file" id="instruction-foto" name="instruction-foto" class="download-button" accept="image/*" required>
+                <label for="instruction-foto" class="download-button">Загрузить</label>
+            </div>
+            <div class="explanation-field-description-exercise-technique">
+                Распишите технику выполнения упражнения
+            </div>
+            <textarea name="description" class="description-exercise-technique" placeholder="Описание" required></textarea>
+            <button class="done-button" type="submit">
+                Готово
+            </button>
+        </form>
+    </dialog>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>
