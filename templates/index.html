@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CrossFIIT</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="../static/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body class="background" style="background-image: url('static/images/background-index.png');">
@@ -31,16 +31,16 @@
                 Загрузите фотографию для упражнения
             </div>
             <div class="load-main-foto">
-                <img src="static/images/default-foto-download.png" alt="default-foto-download">
-                <input type="file" id="main-foto" name="main-foto" class="download-button" accept="image/*" required>
+                <img src="../static/images/default-foto-download.png" alt="default-foto-download">
+                <input type="file" id="main-foto" name="main-foto" class="download-button" accept="image/*">
                 <label for="main-foto" class="download-button">Загрузить</label>
             </div>
             <div class="explanation-field-load-instructions-foto">
                 Загрузите фото-инструкцию с техникой выполнения
             </div>
             <div class="load-instructions-foto">
-                <img src="static/images/default-foto-download.png" alt="default-foto-download">
-                <input type="file" id="instruction-foto" name="instruction-foto" class="download-button" accept="image/*" required>
+                <img src="../static/images/default-foto-download.png" alt="default-foto-download">
+                <input type="file" id="instruction-foto" name="instruction-foto" class="download-button" accept="image/*">
                 <label for="instruction-foto" class="download-button">Загрузить</label>
             </div>
             <div class="explanation-field-description-exercise-technique">
@@ -52,6 +52,6 @@
             </button>
         </form>
     </dialog>
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <script src="../static/index.js"></script>
 </body>
 </html>
