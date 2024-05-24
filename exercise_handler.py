@@ -3,6 +3,7 @@ from exercise import Exercise
 
 MAX_SERIE_NUMBER = 4
 database = Database('data/crossfiit.db')
+database.create_database()
 MAPPING_EXERCISES = {
 
 }
@@ -31,7 +32,7 @@ FROM {database.exercises_table_name}
 def get_exercise_serie(serie_num: int) -> list[Exercise]:
     serie = database.select(
         f'''
-SELECT id, name, description, muscle_group, main_photo, second_photo
+SELECT id, name, description, main_photo, second_photo
 FROM {database.exercises_serie_table_name}
 LEFT OUTER JOIN {database.exercises_table_name}
 ON id = exercise_id
@@ -55,8 +56,8 @@ def exercize(request):
 
     exercise_name = request.form['name-exercise']
     exercise_description = request.form['description']
-    exercise_type = MAPPING_EXERCISES[request.form['type-exercise']] \
-        if request.form['type-exercise'] in MAPPING_EXERCISES \
-        else -1
+    # exercise_type = MAPPING_EXERCISES[request.form['type-exercise']] \
+    #     if request.form['type-exercise'] in MAPPING_EXERCISES \
+    #     else -1
 
-    return Exercise('', exercise_name, exercise_description, exercise_type, main_foto, instruction_foto)
+    return Exercise('', exercise_name, exercise_description, main_foto, instruction_foto)

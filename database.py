@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS {Database.exercises_table_name}
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         description TEXT,
-        muscle_group INTEGER NOT NULL,
+--         muscle_group INTEGER NOT NULL,
         main_photo TEXT,
         second_photo TEXT
      );

@@ -22,11 +22,6 @@
         </div>
         <form class="adding-exercise" name="form-for-adding-exercise" action="" method="POST" enctype="multipart/form-data">
             <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
-            <select name="type-exercise" class="type-exercise" required>
-                <option value="">Выберите группу упражнения</option>
-                <option value=""></option>
-                <option value=""></option>
-            </select>
             <div class="explanation-field-load-main-foto">
                 Загрузите фотографию для упражнения
             </div>
@@ -51,6 +46,12 @@
                 Готово
             </button>
         </form>
+    </dialog>
+    <dialog class="confirmation-dialog" aria-labelledby="confirmation-dialog-title">
+        <div class="confirmation-dialog-container">
+            <div id="confirmation-dialog-title">Данные сохранены</div>
+            <button class="close-confirmation-dialog">OK</button>
+        </div>
     </dialog>
     <script src="../static/index.js"></script>
 </body>
