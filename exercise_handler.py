@@ -11,7 +11,7 @@ MAPPING_EXERCISES = {
 def get_exercise_by_id(id: int) -> Exercise:
     exercise = database.select(
         f'''
-SELECT * 
+SELECT id, name, description, main_photo, second_photo
 FROM {database.exercises_table_name}
 WHERE id = (?)
         ''', (id,))
@@ -22,7 +22,7 @@ WHERE id = (?)
 def get_all_exercises() -> list[Exercise]:
     exercises = database.select(
         f'''
-SELECT * 
+SELECT id, name, description, main_photo, second_photo
 FROM {database.exercises_table_name}
         ''', tuple())
     
