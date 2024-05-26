@@ -107,6 +107,11 @@ body, html {
     border: 0;
 }
 
+img {
+    height: 100%;
+    object-fit: cover;
+}
+
 .explanation-field-load-main-foto,
 .explanation-field-load-instructions-foto,
 .explanation-field-description-exercise-technique,
@@ -190,6 +195,10 @@ body, html {
     margin-top: 10px;
 }
 
+.download-button:hover {
+    transform: scale(1.05);
+}
+
 .done-button {
     grid-area: done-button;
     align-self: center;
@@ -207,9 +216,14 @@ body, html {
     box-sizing: border-box;
 }
 
+.done-button:hover {
+    transform: scale(1.05);
+}
+
 .confirmation-dialog {
     padding: 10px;
-    border: solid #1D1C1C;
+    border: solid 10px #1D1C1C;
+    border-radius: 20px;
     background-color: #575757;
     max-width: 200px;
     min-width: 200px;
@@ -228,6 +242,10 @@ body, html {
 
 .close-confirmation-dialog {
     width: 50%;
+}
+
+.close-confirmation-dialog:hover {
+    transform: scale(1.05);
 }
 
 
@@ -256,8 +274,4 @@ body, html {
     .generating-button, .adding-button {
         font-size: 24px;
     }
-}
-
-@media screen and (max-width: 300px) {
-    /* скорректировать размеры всплывающего окна "данные сохраненны" и кнопок на главном меню */
 }
