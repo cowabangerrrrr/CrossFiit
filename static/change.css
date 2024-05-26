@@ -110,8 +110,8 @@ body, html {
 .st_button, .save_button{
     position: sticky;
     width: 100%;
-    background-color:#686666;
-    bottom: 0px;
+    background-color: #686666;
+    bottom: 0;
     text-align: center;
     cursor: pointer;
     border: none;
@@ -122,6 +122,7 @@ body, html {
     padding: 0;
     margin: 0;
 }
+
 
 .modalExercise,
 .modalExtra {
@@ -264,7 +265,8 @@ body, html {
 
 .confirmation-dialog {
     height: 120px;
-    border: solid #1D1C1C;
+    border: solid 10px #1D1C1C;
+    border-radius: 25px;
     background-color: #575757;
 }
 
@@ -307,14 +309,53 @@ body, html {
     padding: 5px;
 }
 
+.yes-button:hover,
+.no-button:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 1024px) {
+    .confirmation-dialog {
+        width: 325px;
+        height: 150px;
+    }
+
+    #confirmation-dialog-title {
+        width: 100%;
+        font-size: x-large;
+        margin-bottom: 10px;
+    }
+
+    .button-group {
+        height: 50px;
+    }
+
+    .yes-button,
+    .no-button {
+        height: 50px;
+        font-size: x-large;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .confirmation-dialog {
         width: 260px;
     }
 
+    #confirmation-dialog-title {
+        height: 50px;
+        width: 100%;
+        font-size: medium;
+    }
+
+    .button-group {
+        height: 35px;
+    }
+
     .yes-button,
     .no-button {
         width: 80px;
+        font-size: x-large;
     }
 }
 
@@ -324,8 +365,14 @@ body, html {
         max-width: 200px;
     }
 
+    #confirmation-dialog-title {
+        margin-bottom: 10px;
+    }
+
     .yes-button,
     .no-button {
         width: 80px;
+        height: 35px;
+        font-size: medium;
     }
 }
