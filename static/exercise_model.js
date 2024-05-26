@@ -99,12 +99,18 @@ savingSerieButton.addEventListener('click', () => {
 });
 
 function deleteExercise(button){
+    const closeDialog = document.querySelector('.confirmation-dialog');
+    const yesButton = document.querySelector('.yes-button');
+    const noButton = document.querySelector('.no-button');
+
     button.addEventListener("click", () => {
-        const confirmDelete = confirm("Вы действительно хотите удалить упражнение?");
-        if (confirmDelete) {
+        closeDialog.showModal();
+        yesButton.addEventListener('click', () => {
             const container = button.closest(".container");
             container.remove();
-        }
+            closeDialog.close();
+        })
+        noButton.addEventListener('click', () => closeDialog.close())
     });
 }
 

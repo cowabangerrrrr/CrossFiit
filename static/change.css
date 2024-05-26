@@ -261,3 +261,71 @@ body, html {
     overflow-wrap: break-word;
     text-align: left;
 }
+
+.confirmation-dialog {
+    height: 120px;
+    border: solid #1D1C1C;
+    background-color: #575757;
+}
+
+#confirmation-dialog-title {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background-color: #393939;
+    border-color: #1D1C1C;
+    padding: 10px;
+}
+
+.dialog-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.yes-button,
+.no-button {
+    height: 100%;
+    width: 25%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-radius: 25px;
+    background-color: #393939;
+    border: 5px solid rgba(173, 173, 173, 1);
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+@media screen and (max-width: 400px) {
+    .confirmation-dialog {
+        width: 260px;
+    }
+
+    .yes-button,
+    .no-button {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .confirmation-dialog {
+        min-width: 200px;
+        max-width: 200px;
+    }
+
+    .yes-button,
+    .no-button {
+        width: 80px;
+    }
+}

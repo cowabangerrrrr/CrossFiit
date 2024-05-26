@@ -33,36 +33,20 @@ def workout():
 
 @app.route('/upload_exercise', methods=['POST'])
 def upload_exercise():
-
-    # if 'imageFile' not in request.files:
-    #     return jsonify({'error': 'No file part'})
-    
-    # imageFile = request.files['main-foto']
-    # imageName = request.form['imageName']
-
     exercise = exercise_handler.exercize(request)
 
     database.insert(f"""
-                        INSERT INTO exercises (name, description, muscle_group, main_photo, second_photo)
-                        VALUES (?, ?, ?, ?, ?)
+                        INSERT INTO exercises (name, description, main_photo, second_photo)
+                        VALUES (?, ?, ?, ?)
                     """,
                         (
                             exercise.name,
                             exercise.description,
-                            exercise.muscle_group,
                             exercise.main_photo_path,
                             exercise.second_photo_path
                         )
                     )
 
-    # if imageFile.filename == '':
-    #     return jsonify({'error': 'No selected file'})
-    #
-    # if imageFile and imageName:
-    #     filename = secure_filename(imageFile.filename)
-    #     imagePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    #     imageFile.save(imagePath)
-    #
     return jsonify({'success': True})
     # else:
     #     return jsonify({'error': 'Missing image or name'})
