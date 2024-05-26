@@ -21,6 +21,7 @@
         </div>
         <div class="menu_container">
             <button id="goToMain" class="m_button">На главную</m_button>
+            <button id="{{serie_num}}" class="m_button saveSerie">Сохранить список</m_button>
             <button id="restart" class="m_button">Рестарт</m_button>
         </div>
         <div class="modal_container">
@@ -51,7 +52,7 @@
                 <div class="extraExercisesContainer">
                     {% for record in exercises %}
                         <button class="extraExerciseButton"  id="{{ record.id }}">
-                            <img src="../static/images/{{ record.second_photo_path }}" alt="image" class="extraExerciseImage">
+                            <img src="../static/images/{{ record.main_photo_path }}" alt="image" class="extraExerciseImage">
                             <span>{{ record.name }}</span>
                         </button>
                     {% endfor %}

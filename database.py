@@ -4,6 +4,7 @@ import sqlite3
 class Database:
     exercises_table_name = 'exercises'
     exercises_serie_table_name = 'exercises_serie'
+    user_id_serie_num_table_name = 'user_serie'
 
     def __init__(self, path_to_db: str):
         self.path_to_db = path_to_db
@@ -27,6 +28,11 @@ CREATE TABLE IF NOT EXISTS {Database.exercises_table_name}
             f'''
 CREATE TABLE IF NOT EXISTS {Database.exercises_serie_table_name} 
 (exercise_id INTEGER NOT NULL, serie INTEGER NOT NULL);
+            ''')
+        self.cursor.execute(
+            f'''
+CREATE TABLE IF NOT EXISTS {Database.user_id_serie_num_table_name} 
+(user_id TEXT NOT NULL UNIQUE, serie INTEGER NOT NULL);
             ''')
 
     def insert(self, query, data):

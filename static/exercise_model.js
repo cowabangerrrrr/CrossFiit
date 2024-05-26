@@ -64,12 +64,38 @@ modalController({
     btnClose: ".closeButton",
 });
 
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
 document.getElementById("goToMain").addEventListener("click", () => {
     window.location.href = "/";
 });
 
 document.getElementById("restart").addEventListener("click", () => {
     window.location.href = "workout";
+});
+
+const savingSerieButton = document.querySelector('.saveSerie');
+savingSerieButton.addEventListener('click', () => {
+    const serieNum = savingSerieButton.id;
+    const userId = getCookie('user_id');
+    fetch('/save_serie', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ user_id: userId, serie_num: serieNum })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });
 
 function deleteExercise(button){
