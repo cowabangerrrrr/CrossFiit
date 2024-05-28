@@ -149,7 +149,6 @@ body, html {
     grid-template-areas: "name exit";
     background-color: #393939;
     margin-bottom: 10px;
-    justify-content: space-between;
 }
 
 .header .modalTitle {
@@ -165,10 +164,11 @@ body, html {
     grid-area: exit;
     cursor: pointer;
     font-size: 1em;
-    color: red;
     border:0;
     padding: 0%;
-    background-color: black;
+    width: 3rem;
+    color: #A16A6A;
+    background-color: #1D1C1C;
 }
 
 .modalMain img {

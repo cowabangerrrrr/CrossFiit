@@ -59,9 +59,9 @@ body {
 .header .closeButton {
     cursor: pointer;
     font-size: 20px;
-    color: red;
+    color: #A16A6A;
     border:0;
-    background-color: black;
+    background-color: #1D1C1C;
 }
 
 .modalMain img {
