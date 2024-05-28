@@ -5,68 +5,63 @@ body, html {
     background-size: cover;
     font-family: 'Courier New', Courier, monospace;
     color: white;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
-    justify-content: center;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow: auto;
 }
 
 .menu_container{
-    grid-area: buttons;
     overflow-wrap: break-word;
     display: flex;
-    min-width: max(50vw, 25vh);
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    width: 50%;
+    min-height: 5%;
+    margin: 2% 0;
     flex-direction: row;
     align-self: center;
-    justify-self: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .m_button{
-    height: min(10vw, 10vh);
+    box-sizing: border-box;
+    height: 100%;
+    width: 30%;
     background-color: #393939E5;
     font-family: 'Courier New', Courier, monospace;
     color: white;
-    font-size: max(2vw, 2vh);
+    font-size: 1.5em;
     font-weight: bold;
     font-style: italic;
     border-radius: 25px;
-    border-width: 0.4vw;
+    border-width: 5px;
     border-style: solid;
-    padding: 0% 2%;
+    padding: 0 2%;
     border-color: #ADADAD;
-    align-self: center;
     justify-self: center;
+    align-self: center;
     cursor: pointer;
 }
 
 .exercises_container {
-    grid-area: context;
     background-color: rgba(52, 52, 52, 0.75);
-    width: max(50vw, 60vh);
-    max-width: 70%;
-    max-height: 90%;
-    margin-top: 5vh;
+    width: 60%;
+    max-height: 80%;
+    margin-top: 20px;
     overflow-y: auto;
-    justify-self: center;
     align-self: center;
 }
 
 .container {
     display: grid;
-    width: 98%;
     margin: 1%;
-    grid-template-columns: 95% 5%;
+    grid-template-columns: 93% 7%;
     grid-template-areas: "exercise del";
-    grid-template-rows: max(10vh, 6vw);
+    grid-template-rows: 80px;
     gap: 0;
-    border-radius: 15px;
 }
 
 .ex_button{
@@ -74,7 +69,7 @@ body, html {
     grid-area: exercise;
     grid-template-columns: 35% 65%;
     grid-template-areas: "icon name";
-    grid-template-rows: max(10vh, 6vw);
+    grid-template-rows: 100%;
     box-sizing: border-box;
     padding: 0;
     border: 0;
@@ -83,7 +78,7 @@ body, html {
 .ex_button span {
     grid-area: name;
     align-self: center;
-    font-size: max(2vw, 2vh);
+    font-size: 1.5em;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     overflow-wrap: break-word;
@@ -101,10 +96,11 @@ body, html {
 
 .del_button {
     grid-area: del;
-    font-size: 3vw;
+    font-size: 1.5em;
     color: red;
     border: 0;
-    padding: 0;
+    padding: 0 3%;
+    text-align: center;
 }
 
 .st_button, .save_button{
@@ -117,7 +113,7 @@ body, html {
     border: none;
     font-family: 'Courier New', Courier, monospace;
     color: white;
-    font-size: max(2vw, 2vh);
+    font-size: 1.5em;
     font-weight: bold;
     padding: 0;
     margin: 0;
@@ -130,7 +126,6 @@ body, html {
     inset: 0;
     background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
-    padding: 30px;
     overflow-y: auto;
     display: none;
 }
@@ -138,8 +133,8 @@ body, html {
 .modalMain,
 .modalMainExtra {
     position: relative;
-    max-width: 700vw;
-    background-color: rgb(69, 68, 68);
+    width: 60%;
+    background-color: rgb(68, 68, 68);
     margin: auto;
     color: white;
     cursor: default;
@@ -148,33 +143,36 @@ body, html {
 
 .modalMain .header,
 .modalMainExtra .header{
-    display: flex;
-    justify-content: end;
-    justify-content: space-between;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 92% 8%;
+    grid-template-areas: "name exit";
     background-color: #393939;
     margin-bottom: 10px;
+    justify-content: space-between;
 }
 
 .header .modalTitle {
-    font-size: 50px;
+    grid-area: name;
+    font-size: 1.7em;
     text-align: center;
-    margin: 0 auto;
     width: 100%;
+    margin: 2% 0;
     overflow-wrap: break-word;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 .header .closeButton {
+    grid-area: exit;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1em;
     color: red;
     border:0;
+    padding: 0%;
     background-color: black;
 }
 
 .modalMain img {
-    width: 40%;
+    width: 50%;
     max-width: 100%; 
     display: block;   
     margin: 0 auto;  
@@ -188,7 +186,7 @@ body, html {
 }
 
 .descriptionContainer h3 {
-    font-size: 30px;
+    font-size: 1.1em;
     width:100%;
     height: 100%;
     background-color: #393939;
@@ -209,7 +207,7 @@ body, html {
     box-sizing: border-box;
     width: 98%;
     margin: 1%;
-    font-size: min(3vw, 3vh);
+    font-size: 1.2em;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;
@@ -225,18 +223,17 @@ body, html {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-height: 60vh;
+    max-height: 400px;
 }
 
 .extraExerciseButton {
     display: grid;
     width: 98%;
     border: none;
-    margin-top: min(0.5vh, 0.5vw);
-    margin-bottom: min(0.5vh, 0.5vw);
-    grid-template-columns: 40% 60%;
-    grid-template-areas: "img name";
-    grid-template-rows: max(10vh, 6vw);
+    margin: 0.5% 0;
+    grid-template-columns: 20% 70% 10%;
+    grid-template-areas: "img name tick";
+    grid-template-rows: 60px;
     gap: 0;
     border-radius: 15px;
     box-sizing: border-box;
@@ -253,10 +250,10 @@ body, html {
     object-fit: contain;
 }
 
-.extraExerciseButton span {
+.extraExerciseButton .name {
     grid-area: name;
     align-self: center;
-    font-size: max(2vw, 2vh);
+    font-size: 1.5em;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     overflow-wrap: break-word;
@@ -359,7 +356,111 @@ body, html {
     }
 }
 
-@media screen and (max-width: 300px) {
+
+.extraExerciseButton .tick {
+    grid-area: tick;
+    align-self: center;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1120px)  {
+    .exercises_container {
+        width: 70%;
+        max-height: 80%;
+    }
+    .container{
+        grid-template-rows: 70px;
+    }
+
+    .ex_button span,  
+    .del_button, 
+    .st_button, 
+    .save_button{
+        font-size: 1.3em;
+        font-weight: bold;
+    } 
+
+    .menu_container{
+        width: 70%;
+        min-height: 7%;
+        margin-top: 5%;
+    } 
+    
+    .m_button{
+        width: 30%;
+        min-height: 50%;
+        font-size: 1.1em;
+        border-radius: 20px;
+        border-width: 3px;
+        border-style: solid;
+        padding: 0 1%;
+    } 
+    .modalMain{
+        width: 80%;
+    }
+    .modalMainExtra {
+        width: 60%;
+    }
+    .extraExerciseButton {
+        grid-template-rows: 50px;
+    }
+}
+
+@media screen and (min-width: 330px) and (max-width: 600px)  {
+    .exercises_container {
+        width: 80%;
+        max-height: 80%;
+    }
+    .container{
+        grid-template-rows: 60px;
+    }
+
+    .ex_button span,  
+    .del_button, 
+    .st_button, 
+    .save_button{
+        font-size: 1.2em;
+        font-weight: bold;
+    } 
+
+    .menu_container{
+        width: 80%;
+        min-height: 7%;
+        margin-top: 5%;
+    }
+    
+    .m_button{
+        width: 30%;
+        min-height: 50%;
+        font-size: 0.8em;
+        border-radius: 20px;
+        border-width: 3px;
+        border-style: solid;
+        padding: 0 1%;
+    }
+    .modalMain{
+        width: 90%;
+    }
+    .modalMainExtra {
+        width: 70%;
+    }
+    .extraExerciseButton {
+        grid-template-rows: 50px;
+    }
+    .extraExerciseButton .name {
+        font-size: 1.2em;
+    }
+    .name-exercise {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 330px)  {
     .confirmation-dialog {
         min-width: 200px;
         max-width: 200px;
@@ -374,5 +475,63 @@ body, html {
         width: 80px;
         height: 35px;
         font-size: medium;
+    }
+
+    .exercises_container {
+        width: 90%;
+        max-height: 80%;
+    }
+
+    .container{
+        grid-template-columns: 90% 10%;
+        grid-template-rows: 50px;
+    }
+
+    .ex_button span,  
+    .del_button, 
+    .st_button, 
+    .save_button,
+    .descriptionContainer h3 {
+        font-size: 0.8em;
+    } 
+
+    .menu_container{
+        display: flex;
+        width: 90%;
+        flex-direction: column;
+    }
+    
+    .m_button{
+        height: 30%;
+        width: 100%;
+        font-size: 0.8em;
+        border-radius: 15px;
+        border-width: 3px;
+        border-style: solid;
+        padding: 0 2%;
+    }
+
+    .modalMain,
+    .modalMainExtra {
+        width: 90%;
+    }
+    .extraExerciseButton {
+        grid-template-rows: 30px;
+        border-radius: 8px;
+    }
+
+    .name-exercise,
+    .descriptionContainer p {
+        font-size: 0.7em;
+    }
+
+    .extraExerciseButton .name, 
+    .extraExerciseButton .tick {
+        font-size: 0.6em;
+    }
+
+    .header .modalTitle,
+    .header .closeButton {
+        font-size: 0.9em;
     }
 }

@@ -37,6 +37,7 @@ const modalController = ({ modal, btnOpen, btnClose, time = 300 }) => {
                 const button = document.getElementById(exerciseId);
                 if (button) {
                     button.style.background = 'white';
+                    button.querySelector('.tick').style.opacity = '0';
                 }
             });
             exercises.length = 0;
@@ -181,9 +182,11 @@ extraExerciseButtons.forEach(button => {
             const ind = exercises.indexOf(id);
             exercises.splice(ind, 1);
             button.style.background = 'white';
+            button.querySelector('.tick').style.opacity = '0';
         } else {
             exercises.push(id);
-            button.style.background = '#393939';
+            button.style.background = 'rgb(164, 164, 164)';
+            button.querySelector('.tick').style.opacity = '1';
         }
         saveButton.style.display = exercises.length > 0 ? 'block' : 'none';
     });
