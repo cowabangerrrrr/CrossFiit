@@ -5,6 +5,7 @@
         <title>CrossFIIT</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='change.css') }}">
         <script src="{{ url_for('static', filename='exercise_model.js') }}" defer></script>
+        <meta name="viewport" content="width=device-width">
     </head>
     <body class="background">
         <div class="exercises_container">
@@ -52,7 +53,8 @@
                     {% for record in exercises %}
                         <button class="extraExerciseButton"  id="{{ record.id }}">
                             <img src="../static/images/{{ record.second_photo_path }}" alt="image" class="extraExerciseImage">
-                            <span>{{ record.name }}</span>
+                            <span class="name">{{ record.name }}</span>
+                            <span class="tick">&#10004;</span>
                         </button>
                     {% endfor %}
                     <button class="save_button">СОХРАНИТЬ</button>
