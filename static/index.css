@@ -13,6 +13,55 @@ body, html {
     align-items: center;
 }
 
+.top-right-corner {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    background: white;
+    color: #444;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+    text-decoration: none; 
+    padding: 5px; 
+}
+
+.google-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.google-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-text {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.top-left-corner {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.logout-icon {
+    width: 80px;
+    height: 60px;
+}
+
 .button-container {
     display: flex;
     flex-direction: column;
@@ -246,6 +295,48 @@ img {
 
 .close-confirmation-dialog:hover {
     transform: scale(1.05);
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px; /* Позиция сверху */
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+    to {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+}
+
+@keyframes fadein {
+    from {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+    to {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+}
+
+@-webkit-keyframes fadeout {
+    from {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+    to {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+}
+
+@keyframes fadeout {
+    from {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+    to {top: -30px; opacity: 0;} /* Начальная позиция сверху */
 }
 
 

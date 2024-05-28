@@ -7,55 +7,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body class="background" style="background-image: url('static/images/background-index.png');">
-    <a href="{{ url_for('authorize') }}">
-        <button>Login with Google</button>
-    </a>
-    <div class="button-container">
-        <button class="generating-button">Сгенерировать программу</button>
-        <button class="adding-button">Добавить упражнение</button>
+    <div class="top-right-corner">
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('saved_workout') }}" class="google-btn">
+                <span class="btn-text">HISTORY</span>
+            </a>
+        {% else %}
+            <a href="{{ url_for('authorize') }}" class="google-btn">
+                <span class="btn-text">Login with Google</span>
+                <div class="google-icon-wrapper">
+                    <img class="google-icon" src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
+                </div>
+            </a>
+        {% endif %}
     </div>
-    <dialog class="window-adding-exercise" aria-labelledby="adding-window">
-        <div class="head-window-adding-exercise">
-            <div class="head-window-text">
-                Добавление упражнения
-            </div>
-            <button class="close-window-adding-exercise">
-                &#10006;
-            </button>
+    <div class="top-left-corner">
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}" class="logout-btn">
+                <img class="logout-icon" src="../static/images/logout.png" alt="Logout logo">
+            </a>
+        {% endif %}
+    </div>
+    {% if current_user.is_authenticated %}
+        <div class="button-container">
+            <button class="generating-button">Сгенерировать программу</button>
+            <button class="adding-button">Добавить упражнение</button>
         </div>
-        <form class="adding-exercise" name="form-for-adding-exercise" action="" method="POST" enctype="multipart/form-data">
-            <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
-            <div class="explanation-field-load-main-foto">
-                Загрузите фотографию для упражнения
+        <dialog class="window-adding-exercise" aria-labelledby="adding-window">
+            <div class="head-window-adding-exercise">
+                <div class="head-window-text">
+                    Добавление упражнения
+                </div>
+                <button class="close-window-adding-exercise">
+                    &#10006;
+                </button>
             </div>
-            <div class="load-main-foto">
-                <img src="../static/images/default-foto-download.png" alt="default-foto-download">
-                <input type="file" id="main-foto" name="main-foto" class="download-button" accept="image/*">
-                <label for="main-foto" class="download-button">Загрузить</label>
+            <form class="adding-exercise" name="form-for-adding-exercise" action="" method="POST" enctype="multipart/form-data">
+                <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
+                <div class="explanation-field-load-main-foto">
+                    Загрузите фотографию для упражнения
+                </div>
+                <div class="load-main-foto">
+                    <img src="../static/images/default-foto-download.png" alt="default-foto-download">
+                    <input type="file" id="main-foto" name="main-foto" class="download-button" accept="image/*">
+                    <label for="main-foto" class="download-button">Загрузить</label>
+                </div>
+                <div class="explanation-field-load-instructions-foto">
+                    Загрузите фото-инструкцию с техникой выполнения
+                </div>
+                <div class="load-instructions-foto">
+                    <img src="../static/images/default-foto-download.png" alt="default-foto-download">
+                    <input type="file" id="instruction-foto" name="instruction-foto" class="download-button" accept="image/*">
+                    <label for="instruction-foto" class="download-button">Загрузить</label>
+                </div>
+                <div class="explanation-field-description-exercise-technique">
+                    Распишите технику выполнения упражнения
+                </div>
+                <textarea name="description" class="description-exercise-technique" placeholder="Описание" required></textarea>
+                <button class="done-button" type="submit">
+                    Готово
+                </button>
+            </form>
+        </dialog>
+        <dialog class="confirmation-dialog" aria-labelledby="confirmation-dialog-title">
+            <div class="confirmation-dialog-container">
+                <div id="confirmation-dialog-title">Данные сохранены</div>
+                <button class="close-confirmation-dialog">OK</button>
             </div>
-            <div class="explanation-field-load-instructions-foto">
-                Загрузите фото-инструкцию с техникой выполнения
-            </div>
-            <div class="load-instructions-foto">
-                <img src="../static/images/default-foto-download.png" alt="default-foto-download">
-                <input type="file" id="instruction-foto" name="instruction-foto" class="download-button" accept="image/*">
-                <label for="instruction-foto" class="download-button">Загрузить</label>
-            </div>
-            <div class="explanation-field-description-exercise-technique">
-                Распишите технику выполнения упражнения
-            </div>
-            <textarea name="description" class="description-exercise-technique" placeholder="Описание" required></textarea>
-            <button class="done-button" type="submit">
-                Готово
-            </button>
-        </form>
-    </dialog>
-    <dialog class="confirmation-dialog" aria-labelledby="confirmation-dialog-title">
-        <div class="confirmation-dialog-container">
-            <div id="confirmation-dialog-title">Данные сохранены</div>
-            <button class="close-confirmation-dialog">OK</button>
+        </dialog>
+    {% else %}
+        <div class="button-container">
+            <button class="generating-button">Сгенерировать программу</button>
+            <button class="adding-button" onclick="showSnackbar()">Добавить упражнение</button>
         </div>
-    </dialog>
+        <div id="snackbar">Необходима авторизация</div>
+    {% endif %}
     <script src="../static/index.js"></script>
 </body>
 </html>

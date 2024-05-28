@@ -15,31 +15,7 @@ function changeGridLayout() {
     dialog.setAttribute('style', 'display: block;')
     dialog.showModal();
     return;
-    if (window.innerWidth <= 450){
-        form.setAttribute('style',
-        `display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 30px 30px 0.25fr 1fr 0.25fr 1fr 0.25fr 0.5fr;
-        row-gap: 10px;
-        column-gap: 10px;
-        grid-template-areas:
-            "name"
-            "selector"
-            "first-explanatory-note"
-            "first-download-block"
-            "second-explanatory-note"
-            "second-download-block"
-            "third-explanatory-note"
-            "description-block"
-            "done-button";`);
-    } else {
-    }
-    // const dialog = document.body.querySelector('dialog');
-    dialog.setAttribute('style', 'display: block;')
-    dialog.showModal();
 }
-  
-  
 
 document.body.querySelector('[class="adding-button"]')
     .addEventListener('click', changeGridLayout);

@@ -65,12 +65,6 @@ modalController({
     btnClose: ".closeButton",
 });
 
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
 document.getElementById("goToMain").addEventListener("click", () => {
     window.location.href = "/";
 });
@@ -81,14 +75,20 @@ document.getElementById("restart").addEventListener("click", () => {
 
 const savingSerieButton = document.querySelector('.saveSerie');
 savingSerieButton.addEventListener('click', () => {
-    const serieNum = savingSerieButton.id;
-    const userId = getCookie('user_id');
+    const exButtons = document.querySelectorAll('.ex_button');
+    const exercisesIds = [];
+
+    exButtons.forEach(button => {
+        const modalId = button.getAttribute('data-modal-id');
+        exercisesIds.push(modalId);
+    });
+
     fetch('/save_serie', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ user_id: userId, serie_num: serieNum })
+        body: JSON.stringify({ ids: exercisesIds })
     })
     .then(response => response.json())
     .then(data => {
