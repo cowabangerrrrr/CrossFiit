@@ -22,9 +22,9 @@
            <button class="st_button">ДОБАВИТЬ</button>
         </div>
         <div class="menu_container">
-            <button id="goToMain" class="m_button">На главную</m_button>
-            <button id="{{serie_num}}" class="m_button saveSerie">Сохранить список</m_button>
-            <button id="restart" class="m_button">Рестарт</m_button>
+            <button id="goToMain" class="m_button">На главную</button>
+            <button id="{{serie_num}}" class="m_button saveSerie">Сохранить список</button>
+            <button id="restart" class="m_button">Рестарт</button>
         </div>
         <div class="modal_container">
             {% for record in serie %}
@@ -67,6 +67,15 @@
         <div class="dialog-container">
             <div id="confirmation-dialog-title">Вы действительно хотите удалить упражнение?</div>
             <div class="button-group">
+                <button class="yes-button">Да</button>
+                <button class="no-button">Нет</button>
+            </div>
+        </div>
+    </dialog>
+    <dialog class="reboot-confirmation-dialog">
+        <div class="reboot-dialog-container">
+            <div id="reboot-confirmation-dialog-title">Вы действительно хотите обновить программу упражнений?</div>
+            <div class="reboot-confirmation-dialog-button-group">
                 <button class="yes-button">Да</button>
                 <button class="no-button">Нет</button>
             </div>

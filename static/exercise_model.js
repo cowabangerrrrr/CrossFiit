@@ -69,8 +69,20 @@ document.getElementById("goToMain").addEventListener("click", () => {
     window.location.href = "/";
 });
 
-document.getElementById("restart").addEventListener("click", () => {
+const yesButton = document.querySelector('.reboot-confirmation-dialog-button-group .yes-button');
+yesButton.addEventListener('click', () => {
     window.location.href = "workout";
+})
+
+const noButton = document.querySelector('.reboot-confirmation-dialog-button-group .no-button');
+noButton.addEventListener('click', () => {
+    const dialog = document.querySelector('.reboot-confirmation-dialog');
+    dialog.close();
+})
+
+document.getElementById("restart").addEventListener("click", () => {
+    const dialog = document.querySelector('.reboot-confirmation-dialog');
+    dialog.showModal();
 });
 
 const savingSerieButton = document.querySelector('.saveSerie');
