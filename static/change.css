@@ -246,14 +246,16 @@ body, html {
     text-align: left;
 }
 
-.confirmation-dialog {
+.confirmation-dialog,
+.reboot-confirmation-dialog {
     height: 120px;
     border: solid 10px #1D1C1C;
     border-radius: 25px;
     background-color: #575757;
 }
 
-#confirmation-dialog-title {
+#confirmation-dialog-title,
+#reboot-confirmation-dialog-title {
     text-align: center;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
@@ -263,7 +265,8 @@ body, html {
     padding: 10px;
 }
 
-.dialog-container {
+.dialog-container,
+.reboot-dialog-container {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -271,7 +274,8 @@ body, html {
     align-items: center;
 }
 
-.button-group {
+.button-group,
+.reboot-confirmation-dialog-button-group {
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -328,13 +332,15 @@ body, html {
         height: 150px;
     }
 
-    #confirmation-dialog-title {
+    #confirmation-dialog-title,
+    #reboot-confirmation-dialog-title {
         width: 100%;
         font-size: x-large;
         margin-bottom: 10px;
     }
 
-    .button-group {
+    .button-group,
+    .reboot-confirmation-dialog-button-group {
         height: 50px;
     }
 
@@ -343,7 +349,46 @@ body, html {
         height: 50px;
         font-size: x-large;
     }
+}
 
+@media screen and (max-width: 400px) {
+    .confirmation-dialog,
+    .reboot-confirmation-dialog {
+        width: 260px;
+    }
+
+    #confirmation-dialog-title,
+    #reboot-confirmation-dialog-title {
+        height: 50px;
+        width: 100%;
+        font-size: medium;
+    }
+
+    .button-group,
+    .reboot-confirmation-dialog-button-group {
+        height: 35px;
+    }
+
+    .yes-button,
+    .no-button {
+        width: 80px;
+        font-size: x-large;
+    }
+}
+
+
+.extraExerciseButton .tick {
+    grid-area: tick;
+    align-self: center;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1120px)  {
     .exercises_container {
         width: 70%;
         max-height: 80%;
@@ -465,6 +510,20 @@ body, html {
     #confirmation-dialog-title {
         margin-bottom: 2%;
         font-size: 80%;
+    }
+
+    .confirmation-dialog,
+    .reboot-confirmation-dialog {
+        width: 200px;
+    }
+
+    #confirmation-dialog-title,
+    #reboot-confirmation-dialog-title {
+        margin-bottom: 10px;
+    }
+
+    #reboot-confirmation-dialog-title {
+        height: 75px;
     }
 
     .yes-button,
