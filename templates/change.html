@@ -50,7 +50,6 @@
                     <h2 class="modalTitle">Добавление упражнения</h2>
                     <button class="closeButton">&#10006;</button>
                 </div>
-                <input name="name-exercise" class="name-exercise" type="text" placeholder="Введите название упражнения" required>
                 <div class="extraExercisesContainer">
                     {% for record in exercises %}
                         <button class="extraExerciseButton"  id="{{ record.id }}">
@@ -63,6 +62,7 @@
                 </div>
             </div>
         </div>
+    <div id="snackbarAddExercise">Упражения добавлены</div>
     <dialog class="confirmation-dialog">
         <div class="dialog-container">
             <div id="confirmation-dialog-title">Вы действительно хотите удалить упражнение?</div>

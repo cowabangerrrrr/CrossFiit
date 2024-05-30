@@ -193,7 +193,11 @@ extraExerciseButtons.forEach(button => {
 });
 
 saveButton.addEventListener('click', () => {
-    console.log(exercises);
     const modalExtra = document.querySelector('.modalExtra');
     modalExtra.style.display = 'none';
+    const snackbar = document.getElementById("snackbarAddExercise");
+    snackbar.style.visibility = "visible";
+    setTimeout(() => {
+        snackbar.style.visibility = "hidden"; 
+    }, 900);
 });

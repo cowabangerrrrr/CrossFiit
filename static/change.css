@@ -19,7 +19,7 @@ body, html {
     overflow-wrap: break-word;
     display: flex;
     width: 50%;
-    min-height: 5%;
+    min-height: 8%;
     margin: 2% 0;
     flex-direction: row;
     align-self: center;
@@ -33,7 +33,7 @@ body, html {
     background-color: #393939E5;
     font-family: 'Courier New', Courier, monospace;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.1em;
     font-weight: bold;
     font-style: italic;
     border-radius: 25px;
@@ -166,7 +166,6 @@ body, html {
     font-size: 1em;
     border:0;
     padding: 0%;
-    width: 3rem;
     color: #A16A6A;
     background-color: #1D1C1C;
 }
@@ -200,19 +199,6 @@ body, html {
     text-align: center;
     margin: 10px 10px; 
     overflow-wrap: break-word;
-}
-
-.name-exercise {
-    grid-area: name;
-    box-sizing: border-box;
-    width: 98%;
-    margin: 1%;
-    font-size: 1.2em;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    background-color: #393939;
-    border: 0;
 }
 
 .extraExercisesContainer {
@@ -311,7 +297,32 @@ body, html {
     transform: scale(1.05);
 }
 
-@media screen and (max-width: 1024px) {
+.extraExerciseButton .tick {
+    grid-area: tick;
+    align-self: center;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#snackbarAddExercise{
+    visibility: hidden;
+    min-width: 20%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    top: 5%;
+    font-size: 1em;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1120px)  {
     .confirmation-dialog {
         width: 325px;
         height: 150px;
@@ -332,43 +343,7 @@ body, html {
         height: 50px;
         font-size: x-large;
     }
-}
 
-@media screen and (max-width: 400px) {
-    .confirmation-dialog {
-        width: 260px;
-    }
-
-    #confirmation-dialog-title {
-        height: 50px;
-        width: 100%;
-        font-size: medium;
-    }
-
-    .button-group {
-        height: 35px;
-    }
-
-    .yes-button,
-    .no-button {
-        width: 80px;
-        font-size: x-large;
-    }
-}
-
-
-.extraExerciseButton .tick {
-    grid-area: tick;
-    align-self: center;
-    font-size: 2em;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: green;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-@media screen and (min-width: 600px) and (max-width: 1120px)  {
     .exercises_container {
         width: 70%;
         max-height: 80%;
@@ -387,13 +362,13 @@ body, html {
 
     .menu_container{
         width: 70%;
-        min-height: 7%;
-        margin-top: 5%;
+        height: 8%;
+        margin: 1%;
     } 
     
     .m_button{
         width: 30%;
-        min-height: 50%;
+        height: 100%;
         font-size: 1.1em;
         border-radius: 20px;
         border-width: 3px;
@@ -412,6 +387,27 @@ body, html {
 }
 
 @media screen and (min-width: 330px) and (max-width: 600px)  {
+    .confirmation-dialog {
+        width: 260px;
+    }
+
+    #confirmation-dialog-title {
+        height: 50px;
+        width: 100%;
+        font-size: medium;
+    }
+
+    .button-group {
+        height: 35px;
+    }
+
+    .yes-button,
+    .no-button {
+        width: 80px;
+        font-size: x-large;
+        padding: 0;
+    }
+
     .exercises_container {
         width: 80%;
         max-height: 80%;
@@ -430,7 +426,6 @@ body, html {
 
     .menu_container{
         width: 80%;
-        min-height: 7%;
         margin-top: 5%;
     }
     
@@ -460,21 +455,25 @@ body, html {
     }
 }
 
-@media screen and (max-width: 330px)  {
+@media screen and (max-width: 330px)  {   
     .confirmation-dialog {
-        min-width: 200px;
-        max-width: 200px;
+        width: 50%;
+        height: 20%;
+        border-radius: 15px;
     }
 
     #confirmation-dialog-title {
-        margin-bottom: 10px;
+        margin-bottom: 2%;
+        font-size: 80%;
     }
 
     .yes-button,
     .no-button {
-        width: 80px;
-        height: 35px;
+        width: 70px;
+        height: 25px;
         font-size: medium;
+       border: 3px solid rgba(173, 173, 173, 1);
+        padding: 0;
     }
 
     .exercises_container {
