@@ -1,18 +1,17 @@
-import json
 import os
 import requests
 import secrets
-from urllib.parse import urlencode
-from authlib.integrations.flask_client import OAuth
-from flask import Flask, abort, redirect, render_template, session, url_for, request, make_response, jsonify, current_app, flash
-from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
-from flask_debug import Debug
 import exercise_handler
-from exercise_handler import *
+
+from urllib.parse import urlencode
+from flask import Flask, abort, redirect, render_template, session, url_for, request, jsonify, current_app, flash
+from flask_login import LoginManager, login_user, logout_user, current_user
+from flask_debug import Debug
 from random import randint
+from exercise_handler import *
 
 app = Flask(__name__)
-app.secret_key = "5uper 5ecre7 key"
+app.secret_key = "5up6r pup67 56cr67 k6y"
 
 os.environ['GOOGLE_CLIENT_ID'] = 'a'
 os.environ['GOOGLE_CLIENT_SECRET'] = 'a'
@@ -130,7 +129,7 @@ def workout():
     serie_num = randint(1, MAX_SERIE_NUMBER)
     serie = get_exercise_serie(serie_num)
     available_exercises = get_exercises_for_user(None if current_user.is_anonymous else current_user.id)
-    return render_template('change.html', serie=serie, exercises=available_exercises)
+    return render_template('workout.html', serie=serie, exercises=available_exercises)
 
 
 @app.get('/saved_workout')
@@ -142,7 +141,7 @@ def saved_workout():
     
     session['delete_restart'] = True
     available_exercises = get_exercises_for_user(None if current_user.is_anonymous else current_user.id)
-    return render_template('change.html', serie=saved_serie, exercises=available_exercises)
+    return render_template('workout.html', serie=saved_serie, exercises=available_exercises)
 
 
 @app.route('/upload_exercise', methods=['POST'])
@@ -160,7 +159,6 @@ def save_serie_for_user():
     
     data = request.get_json()
     exercises_ids = [int(id) for id in data.get('ids')]
-    
     
     database.insert(f'DELETE FROM {database.user_id_exrecise_id_table_name} WHERE user_id = ?', 
                     (current_user.id,))

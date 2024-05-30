@@ -4,11 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>CrossFIIT</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='change.css') }}">
-        <script src="{{ url_for('static', filename='exercise_model.js') }}" defer></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='workout.css') }}">
+        <script src="{{ url_for('static', filename='workout.js') }}" defer></script>
         <meta name="viewport" content="width=device-width">
     </head>
-    <body class="background">
+    <body class="background" style="background-image: url('static/images/background-change.png');">
         <div class="exercises_container">
             {% for record in serie %}
                 <div class="container">
@@ -34,6 +34,7 @@
             {% else %}
                 <button id="restart" class="m_button">Рестарт</m_button>
             {% endif %}
+            <div id="snackbarAddExercise">Упражения добавлены</div>
         </div>
         <div class="modal_container">
             {% for record in serie %}
@@ -79,7 +80,6 @@
             </div>
         </dialog>
     {% endif %}
-    <div id="snackbarAddExercise">Упражения добавлены</div>
     <dialog class="confirmation-dialog">
         <div class="dialog-container">
             <div id="confirmation-dialog-title">Вы действительно хотите удалить упражнение?</div>

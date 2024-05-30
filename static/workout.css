@@ -1,22 +1,18 @@
 body, html {
-    background-image: url("images/background-change.png");
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Courier New', Courier, monospace;
     color: white;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     margin: 0;
     overflow: auto;
 }
 
 .menu_container{
-    overflow-wrap: break-word;
     display: flex;
     width: 50%;
     min-height: 8%;
@@ -27,7 +23,6 @@ body, html {
 }
 
 .m_button{
-    box-sizing: border-box;
     height: 100%;
     width: 30%;
     background-color: #393939E5;
@@ -41,9 +36,6 @@ body, html {
     border-style: solid;
     padding: 0 2%;
     border-color: #ADADAD;
-    justify-self: center;
-    align-self: center;
-    cursor: pointer;
 }
 
 .exercises_container {
@@ -110,7 +102,6 @@ body, html {
     bottom: 0;
     text-align: center;
     cursor: pointer;
-    border: none;
     font-family: 'Courier New', Courier, monospace;
     color: white;
     font-size: 1.5em;
@@ -118,7 +109,6 @@ body, html {
     padding: 0;
     margin: 0;
 }
-
 
 .modalExercise,
 .modalExtra {
@@ -142,7 +132,7 @@ body, html {
 }
 
 .modalMain .header,
-.modalMainExtra .header{
+.modalMainExtra .header {
     display: grid;
     width: 100%;
     grid-template-columns: 92% 8%;
@@ -297,7 +287,8 @@ body, html {
 }
 
 .yes-button:hover,
-.no-button:hover {
+.no-button:hover,
+.close-confirmation-dialog-snackbar:hover {
     transform: scale(1.05);
 }
 
@@ -312,71 +303,6 @@ body, html {
     transition: opacity 0.3s ease-in-out;
 }
 
-#snackbarAddExercise{
-    visibility: hidden;
-    min-width: 20%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    top: 5%;
-    font-size: 1em;
-}
-
-@media screen and (min-width: 600px) and (max-width: 1120px)  {
-    .confirmation-dialog {
-        width: 325px;
-        height: 150px;
-    }
-
-    #confirmation-dialog-title,
-    #reboot-confirmation-dialog-title {
-        width: 100%;
-        font-size: x-large;
-        margin-bottom: 10px;
-    }
-
-    .button-group,
-    .reboot-confirmation-dialog-button-group {
-        height: 50px;
-    }
-
-    .yes-button,
-    .no-button {
-        height: 50px;
-        font-size: x-large;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .confirmation-dialog,
-    .reboot-confirmation-dialog {
-        width: 260px;
-    }
-
-    #confirmation-dialog-title,
-    #reboot-confirmation-dialog-title {
-        height: 50px;
-        width: 100%;
-        font-size: medium;
-    }
-
-    .button-group,
-    .reboot-confirmation-dialog-button-group {
-        height: 35px;
-    }
-
-    .yes-button,
-    .no-button {
-        width: 80px;
-        font-size: x-large;
-    }
-}
-
-
 .extraExerciseButton .tick {
     grid-area: tick;
     align-self: center;
@@ -388,7 +314,8 @@ body, html {
     transition: opacity 0.3s ease-in-out;
 }
 
-#snackbar {
+#snackbar,
+#snackbarAddExercise {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
@@ -400,7 +327,7 @@ body, html {
     position: fixed;
     z-index: 1;
     left: 50%;
-    top: 30px; /* Позиция сверху */
+    top: 30px;
     font-size: 17px;
 }
 
@@ -427,7 +354,6 @@ body, html {
     cursor: pointer;
     box-sizing: border-box;
     margin-top: 10px;
-    
 }
 
 .confirmation-dialog-snackbar {
@@ -437,37 +363,63 @@ body, html {
     background-color: #575757;
 }
 
-.close-confirmation-dialog-snackbar:hover {
-    transform: scale(1.05);
+.confirmation-dialog-container-snackbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#snackbar.show {
+#snackbar.show,
+#snackbarAddExercise.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 @-webkit-keyframes fadein {
-    from {top: -30px; opacity: 0;} /* Начальная позиция сверху */
-    to {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+    from {top: -30px; opacity: 0;}
+    to {top: 30px; opacity: 1;}
 }
 
 @keyframes fadein {
-    from {top: -30px; opacity: 0;} /* Начальная позиция сверху */
-    to {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+    from {top: -30px; opacity: 0;}
+    to {top: 30px; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
-    from {top: 30px; opacity: 1;} /* Конечная позиция сверху */
-    to {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+    from {top: 30px; opacity: 1;}
+    to {top: -30px; opacity: 0;}
 }
 
 @keyframes fadeout {
-    from {top: 30px; opacity: 1;} /* Конечная позиция сверху */
-    to {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+    from {top: 30px; opacity: 1;}
+    to {top: -30px; opacity: 0;}
 }
 
 @media screen and (min-width: 600px) and (max-width: 1120px)  {
+    .confirmation-dialog {
+        width: 325px;
+        height: 150px;
+    }
+
+    #confirmation-dialog-title,
+    #reboot-confirmation-dialog-title {
+        width: 100%;
+        font-size: x-large;
+        margin-bottom: 10px;
+    }
+
+    .button-group,
+    .reboot-confirmation-dialog-button-group {
+        height: 50px;
+    }
+
+    .yes-button,
+    .no-button {
+        height: 50px;
+        font-size: x-large;
+    }
+    
     .exercises_container {
         width: 70%;
         max-height: 80%;
@@ -579,26 +531,29 @@ body, html {
     }
 }
 
-@media screen and (max-width: 330px)  {   
+@media screen and (max-width: 330px)  {  
+    #confirmation-dialog-title,
+    #reboot-confirmation-dialog-title {
+        height: 50px;
+        width: 100%;
+        font-size: medium;
+        margin-bottom: 10px;
+    }
+
+    .button-group,
+    .reboot-confirmation-dialog-button-group {
+        height: 35px;
+    }
+
     .confirmation-dialog {
         width: 50%;
         height: 20%;
         border-radius: 15px;
     }
 
-    #confirmation-dialog-title {
-        margin-bottom: 2%;
-        font-size: 80%;
-    }
-
     .confirmation-dialog,
     .reboot-confirmation-dialog {
         width: 200px;
-    }
-
-    #confirmation-dialog-title,
-    #reboot-confirmation-dialog-title {
-        margin-bottom: 10px;
     }
 
     #reboot-confirmation-dialog-title {
@@ -610,7 +565,7 @@ body, html {
         width: 70px;
         height: 25px;
         font-size: medium;
-       border: 3px solid rgba(173, 173, 173, 1);
+        border: 3px solid rgba(173, 173, 173, 1);
         padding: 0;
     }
 
@@ -619,7 +574,7 @@ body, html {
         max-height: 80%;
     }
 
-    .container{
+    .container {
         grid-template-columns: 90% 10%;
         grid-template-rows: 50px;
     }
@@ -652,6 +607,7 @@ body, html {
     .modalMainExtra {
         width: 90%;
     }
+    
     .extraExerciseButton {
         grid-template-rows: 30px;
         border-radius: 8px;

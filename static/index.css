@@ -5,7 +5,8 @@
     background-size: cover;
 }
 
-body, html {
+body,
+html {
     height: 100%;
     margin: 0;
     display: flex;
@@ -26,10 +27,8 @@ body, html {
     color: #444;
     border-radius: 5px;
     border: thin solid #888;
-    box-shadow: 1px 1px 1px grey;
-    white-space: nowrap;
-    text-decoration: none; 
-    padding: 5px; 
+    text-decoration: none;
+    padding: 5px;
 }
 
 .google-icon-wrapper {
@@ -48,7 +47,7 @@ body, html {
 .btn-text {
     font-size: 17px;
     font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .top-left-corner {
@@ -71,28 +70,23 @@ body, html {
     max-width: 512px;
 }
 
-.generating-button, .adding-button, .history-button {
+.generating-button,
+.adding-button,
+.history-button {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 85px;
-    width: 100%;
     padding: 10px 20px;
     font-size: 32px;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     color: white;
     border-radius: 25px;
     background-color: #393939;
     border-color: rgba(173, 173, 173, 1);
     border-width: 5px;
-    cursor: pointer;
     transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-.generating-button:hover, .adding-button:hover, .history-button:hover {
-    transform: scale(1.05);
 }
 
 .window-adding-exercise {
@@ -102,14 +96,13 @@ body, html {
     background-color: #575757;
 }
 
-.head-window-adding-exercise{
+.head-window-adding-exercise {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     text-align: center;
     height: 40px;
     min-width: 160px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     font-size: 1.2em;
     font-weight: bold;
     color: aliceblue;
@@ -126,8 +119,8 @@ body, html {
     justify-self: end;
     height: 100%;
     width: 3rem;
-    color: #A16A6A;
-    background-color: #1D1C1C;
+    color: #a16a6a;
+    background-color: #1d1c1c;
 }
 
 .adding-exercise {
@@ -150,7 +143,7 @@ body, html {
     box-sizing: border-box;
     width: 100%;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     color: aliceblue;
     background-color: #393939;
     border: 0;
@@ -170,10 +163,10 @@ img {
 #confirmation-dialog-title {
     text-align: center;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     color: aliceblue;
     background-color: #393939;
-    border-color: #1D1C1C;
+    border-color: #1d1c1c;
     padding: 10px;
 }
 
@@ -229,33 +222,11 @@ img {
 }
 
 .download-button,
+.done-button,
 .close-confirmation-dialog {
-    width: 100%;
-    padding: 0.5em;
     font-size: 100%;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    border-radius: 25px;
-    background-color: #393939;
-    border: 5px solid rgba(173, 173, 173, 1);
-    cursor: pointer;
-    box-sizing: border-box;
-    margin-top: 10px;
-}
-
-.download-button:hover {
-    transform: scale(1.05);
-}
-
-.done-button {
-    grid-area: done-button;
-    align-self: center;
-    text-align: center;
-    padding: 0.5em 1em;
-    font-size: 100%;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     color: white;
     border-radius: 25px;
     background-color: #393939;
@@ -265,13 +236,37 @@ img {
     box-sizing: border-box;
 }
 
-.done-button:hover {
+.download-button {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 10px;
+}
+
+.close-confirmation-dialog {
+    width: 50%;
+    padding: 0.5em;
+    margin-top: 10px;
+}
+
+.done-button {
+    grid-area: done-button;
+    align-self: center;
+    text-align: center;
+    padding: 0.5em 1em;
+}
+
+.download-button:hover,
+.done-button:hover,
+.generating-button:hover,
+.adding-button:hover,
+.history-button:hover,
+.close-confirmation-dialog:hover {
     transform: scale(1.05);
 }
 
 .confirmation-dialog {
     padding: 10px;
-    border: solid 10px #1D1C1C;
+    border: solid 10px #1d1c1c;
     border-radius: 20px;
     background-color: #575757;
     max-width: 200px;
@@ -289,14 +284,6 @@ img {
     align-items: center;
 }
 
-.close-confirmation-dialog {
-    width: 50%;
-}
-
-.close-confirmation-dialog:hover {
-    transform: scale(1.05);
-}
-
 #snackbar {
     visibility: hidden;
     min-width: 250px;
@@ -309,7 +296,7 @@ img {
     position: fixed;
     z-index: 1;
     left: 50%;
-    top: 30px; /* Позиция сверху */
+    top: 30px;
     font-size: 17px;
 }
 
@@ -320,25 +307,48 @@ img {
 }
 
 @-webkit-keyframes fadein {
-    from {top: -30px; opacity: 0;} /* Начальная позиция сверху */
-    to {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+    from {
+        top: -30px;
+        opacity: 0;
+    }
+    to {
+        top: 30px;
+        opacity: 1;
+    }
 }
 
 @keyframes fadein {
-    from {top: -30px; opacity: 0;} /* Начальная позиция сверху */
-    to {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+    from {
+        top: -30px;
+        opacity: 0;
+    }
+    to {
+        top: 30px;
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes fadeout {
-    from {top: 30px; opacity: 1;} /* Конечная позиция сверху */
-    to {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+    to {
+        top: -30px;
+        opacity: 0;
+    }
 }
 
 @keyframes fadeout {
-    from {top: 30px; opacity: 1;} /* Конечная позиция сверху */
-    to {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+    to {
+        top: -30px;
+        opacity: 0;
+    }
 }
-
 
 @media screen and (max-width: 450px) {
     .adding-exercise {
@@ -362,7 +372,9 @@ img {
         width: 100%;
     }
 
-    .generating-button, .adding-button, .history-button {
+    .generating-button,
+    .adding-button,
+    .history-button {
         font-size: 24px;
     }
 }

@@ -84,7 +84,7 @@
         <div id="snackbar" onload="showSnackbar()">Нет сохраненной программы</div>
     {% endif %}
     <script>
-        var showSavedSnackbar = {{ session.pop('is_saved_workout', 'false') | tojson }};
+        const showSavedSnackbar = {{ session.pop('is_saved_workout', 'false') | tojson }};
     </script>
     <script src="../static/index.js"></script>
 </body>

@@ -1,12 +1,6 @@
-const generatingButton = document.querySelector(".generating-button");
-generatingButton.addEventListener("click", () => {
-    window.location.href = "workout";
-});
+document.querySelector(".generating-button").addEventListener("click", () => window.location.href = "workout");
 
-const historyButton = document.querySelector(".history-button");
-historyButton.addEventListener("click", () => {
-    window.location.href = "saved_workout";
-});
+document.querySelector(".history-button").addEventListener("click", () => window.location.href = "saved_workout");
 
 function handleCloseButton() {
     const dialog = document.body.querySelector('dialog');
@@ -26,6 +20,7 @@ document.body.querySelector('.adding-button')
 document.querySelector('.close-window-adding-exercise')
     .addEventListener('click', handleCloseButton);
 
+const defaultFotoPath = 'static/images/default-foto-download.png';
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.adding-exercise');
     const dialog = document.querySelector('.window-adding-exercise');
@@ -38,18 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const instructionFotoImg = document.querySelector('.load-instructions-foto img');
     const closeConfirmation = document.querySelector('.close-confirmation-dialog');
 
-    let data = {};
+    const data = {};
 
     addButton.addEventListener('click', () => dialog.showModal());
 
     closeButton.addEventListener('click', () => {
         form.reset();
-        mainFotoImg.src = 'static/images/default-foto-download.png';
-        instructionFotoImg.src = 'static/images/default-foto-download.png';
+        mainFotoImg.src = defaultFotoPath;
+        instructionFotoImg.src = defaultFotoPath;
         dialog.close();
     });
 
-    closeConfirmation.addEventListener('click', () => confirmationDialog.close())
+    closeConfirmation.addEventListener('click', () => confirmationDialog.close());
 
     const handleFileUpload = (input, imgElement, key) => {
         input.addEventListener('change', () => {
@@ -77,16 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(form);
 
         try {
-            const response = await fetch('/upload_exercise', { // тут будет путь до сервера
+            const response = await fetch('/upload_exercise', {
                 method: 'POST',
                 body: formData,
             });
 
             if (response.ok) {
-                const result = await response.json();
-
                 confirmationDialog.showModal();
-
             } else {
                 console.error('Error:', response.statusText);
             }
@@ -95,17 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         form.reset();
-        mainFotoImg.src = 'static/images/default-foto-download.png';
-        instructionFotoImg.src = 'static/images/default-foto-download.png';
+        mainFotoImg.src = defaultFotoPath;
+        instructionFotoImg.src = defaultFotoPath;
         dialog.close();
     });
 });
 
 function showSnackbar() {
     const snackbar = document.getElementById("snackbar");
-  
     snackbar.className = "show";
-    setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    setTimeout(() => snackbar.className = snackbar.className.replace("show", ""), 3000);
 }
 
 window.onload = function() {
