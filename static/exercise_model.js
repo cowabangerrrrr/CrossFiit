@@ -69,15 +69,26 @@ document.getElementById("goToMain").addEventListener("click", () => {
     window.location.href = "/";
 });
 
-document.getElementById("restart").addEventListener("click", () => {
+document.getElementById("restart")?.addEventListener("click", () => {
     window.location.href = "workout";
 });
+
+function callConfirmation() {
+    const dialog = document.querySelector('.confirmation-dialog-snackbar');
+    dialog.showModal();
+
+    const closeDialog = document.querySelector('.close-confirmation-dialog-snackbar');
+    closeDialog.addEventListener('click', () => {
+        dialog.close();
+        showSnackbar();
+    });
+}
 
 const savingSerieButton = document.querySelector('.saveSerie');
 savingSerieButton.addEventListener('click', () => {
     const exButtons = document.querySelectorAll('.ex_button');
     const exercisesIds = [];
-
+    
     exButtons.forEach(button => {
         const modalId = button.getAttribute('data-modal-id');
         exercisesIds.push(modalId);
@@ -97,6 +108,7 @@ savingSerieButton.addEventListener('click', () => {
     .catch((error) => {
         console.error('Error:', error);
     });
+    callConfirmation();
 });
 
 function deleteExercise(button){
@@ -197,3 +209,10 @@ saveButton.addEventListener('click', () => {
     const modalExtra = document.querySelector('.modalExtra');
     modalExtra.style.display = 'none';
 });
+
+function showSnackbar() {
+    const snackbar = document.getElementById("snackbar");
+  
+    snackbar.className = "show";
+    setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+}

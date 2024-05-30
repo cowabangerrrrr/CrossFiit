@@ -368,6 +368,85 @@ body, html {
     transition: opacity 0.3s ease-in-out;
 }
 
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px; /* Позиция сверху */
+    font-size: 17px;
+}
+
+#confirmation-dialog-title-snackbar {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background-color: #393939;
+    border-color: #1D1C1C;
+    padding: 10px;
+}
+
+.close-confirmation-dialog-snackbar {
+    width: 50%;
+    padding: 0.5em;
+    font-size: 100%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-radius: 25px;
+    background-color: #393939;
+    border: 5px solid rgba(173, 173, 173, 1);
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: 10px;
+    
+}
+
+.confirmation-dialog-snackbar {
+    padding: 10px;
+    border: solid 10px #1D1C1C;
+    border-radius: 20px;
+    background-color: #575757;
+}
+
+.close-confirmation-dialog-snackbar:hover {
+    transform: scale(1.05);
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+    to {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+}
+
+@keyframes fadein {
+    from {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+    to {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+}
+
+@-webkit-keyframes fadeout {
+    from {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+    to {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+}
+
+@keyframes fadeout {
+    from {top: 30px; opacity: 1;} /* Конечная позиция сверху */
+    to {top: -30px; opacity: 0;} /* Начальная позиция сверху */
+}
+
 @media screen and (min-width: 600px) and (max-width: 1120px)  {
     .exercises_container {
         width: 70%;

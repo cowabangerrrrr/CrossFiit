@@ -23,8 +23,17 @@
         </div>
         <div class="menu_container">
             <button id="goToMain" class="m_button">На главную</m_button>
-            <button id="{{serie_num}}" class="m_button saveSerie">Сохранить список</m_button>
-            <button id="restart" class="m_button">Рестарт</m_button>
+            {% if current_user.is_authenticated %}
+                <button class="m_button saveSerie">Сохранить программу</m_button>
+                <div id="snackbar">Программа сохранена</div>
+            {% else %}
+                <button class="m_button saveSerie" onclick="showSnackbar()">Сохранить программу</m_button>
+                <div id="snackbar">Необходима авторизация</div>
+            {% endif %}
+            {% if session.pop('delete_restart', None) %}
+            {% else %}
+                <button id="restart" class="m_button">Рестарт</m_button>
+            {% endif %}
         </div>
         <div class="modal_container">
             {% for record in serie %}
@@ -63,6 +72,14 @@
                 </div>
             </div>
         </div>
+    {% if current_user.is_authenticated %}
+        <dialog class="confirmation-dialog-snackbar" aria-labelledby="confirmation-dialog-title">
+            <div class="confirmation-dialog-container-snackbar">
+                <div id="confirmation-dialog-title-snackbar">Вы можете найти сохраненную программу на главной странице</div>
+                <button class="close-confirmation-dialog-snackbar">OK</button>
+            </div>
+        </dialog>
+    {% endif %}
     <dialog class="confirmation-dialog">
         <div class="dialog-container">
             <div id="confirmation-dialog-title">Вы действительно хотите удалить упражнение?</div>

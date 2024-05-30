@@ -1,7 +1,11 @@
-const button = document.querySelector(".generating-button");
-
-button.addEventListener("click", function() {
+const generatingButton = document.querySelector(".generating-button");
+generatingButton.addEventListener("click", () => {
     window.location.href = "workout";
+});
+
+const historyButton = document.querySelector(".history-button");
+historyButton.addEventListener("click", () => {
+    window.location.href = "saved_workout";
 });
 
 function handleCloseButton() {
@@ -104,3 +108,8 @@ function showSnackbar() {
     setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
 }
 
+window.onload = function() {
+    if (showSavedSnackbar) {
+        showSnackbar();
+    }
+}

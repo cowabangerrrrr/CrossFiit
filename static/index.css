@@ -41,12 +41,12 @@ body, html {
 }
 
 .google-icon {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 }
 
 .btn-text {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
@@ -71,7 +71,7 @@ body, html {
     max-width: 512px;
 }
 
-.generating-button, .adding-button {
+.generating-button, .adding-button, .history-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,7 +91,7 @@ body, html {
     box-sizing: border-box;
 }
 
-.generating-button:hover, .adding-button:hover {
+.generating-button:hover, .adding-button:hover, .history-button:hover {
     transform: scale(1.05);
 }
 
@@ -362,7 +362,7 @@ img {
         width: 100%;
     }
 
-    .generating-button, .adding-button {
+    .generating-button, .adding-button, .history-button {
         font-size: 24px;
     }
 }

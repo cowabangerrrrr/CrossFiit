@@ -5,4 +5,4 @@ from flask_login import UserMixin
 @dataclass
 class User(UserMixin):
     id: int
-    emai: str
+    email: str
