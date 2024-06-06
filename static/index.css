@@ -240,6 +240,7 @@ img {
     width: 100%;
     padding: 0.5em;
     margin-top: 10px;
+    border: 5px solid rgba(173, 173, 173, 1);
 }
 
 .close-confirmation-dialog {
