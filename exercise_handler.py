@@ -5,9 +5,8 @@ from user import User
 MAX_SERIE_NUMBER = 4
 database = Database('data/crossfiit.db')
 database.create_database()
-MAPPING_EXERCISES = {
+count_exercises_for_users = {}
 
-}
 
 def get_exercise_by_id(id: int) -> Exercise:
     exercise = database.select(
@@ -57,18 +56,24 @@ WHERE user_id = (?)
     
     return [get_exercise_by_id(exercise_id[0]) for exercise_id in exercises_ids]
 
-def exercize(request):
+def exercize(request, user_id):
+    if user_id not in count_exercises_for_users:
+        count_exercises_for_users[user_id] = 0
+    
     main_foto = request.files['main-foto'].filename
     instruction_foto = request.files['instruction-foto'].filename
 
     if main_foto != '':
+        main_foto = f'{user_id}0{count_exercises_for_users[user_id]}'
         with open(f'static/images/{main_foto}', 'wb') as foto:
             foto.write(request.files['main-foto'].read())
 
     if instruction_foto != '':
+        instruction_foto = f'{user_id}1{count_exercises_for_users[user_id]}'
         with open(f'static/images/{instruction_foto}', 'wb') as foto:
             foto.write(request.files['instruction-foto'].read())
 
+    count_exercises_for_users[user_id] += 1
     exercise_name = request.form['name-exercise']
     exercise_description = request.form['description']
     # exercise_type = MAPPING_EXERCISES[request.form['type-exercise']] \
@@ -118,3 +123,12 @@ VALUES (?, ?, ?, ?, ?)
                             user_id
                         )
                     )
+
+def set_count_exercises_for_users():
+    global count_exercises_for_users
+    data = database.select(f'''
+SELECT user_id, COUNT(id)
+FROM {database.exercises_table_name}
+WHERE user_id != -1
+GROUP BY user_id''', tuple())
+    count_exercises_for_users = {pair[0]: pair[1] for pair in data }

@@ -161,9 +161,8 @@ body, html {
 }
 
 .modalMain img {
-    width: 50%;
-    max-width: 100%; 
-    display: block;   
+    max-width: 50%;
+    display: block;
     margin: 0 auto;  
 }
 
@@ -317,8 +316,8 @@ body, html {
 #snackbar,
 #snackbarAddExercise {
     visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
+    width: 80%;
+    max-width: 500px;
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -329,6 +328,8 @@ body, html {
     left: 50%;
     top: 30px;
     font-size: 17px;
+    transform: translateX(-50%);
+    box-sizing: border-box;
 }
 
 #confirmation-dialog-title-snackbar {
@@ -594,13 +595,13 @@ body, html {
     }
     
     .m_button{
-        height: 30%;
         width: 100%;
         font-size: 0.8em;
         border-radius: 15px;
         border-width: 3px;
         border-style: solid;
         padding: 0 2%;
+        margin: 1px;
     }
 
     .modalMain,

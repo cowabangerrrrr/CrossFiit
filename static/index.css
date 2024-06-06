@@ -286,8 +286,8 @@ img {
 
 #snackbar {
     visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
+    width: 80%;
+    max-width: 500px;
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -298,6 +298,8 @@ img {
     left: 50%;
     top: 30px;
     font-size: 17px;
+    transform: translateX(-50%);
+    box-sizing: border-box; 
 }
 
 #snackbar.show {

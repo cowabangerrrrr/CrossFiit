@@ -13,12 +13,10 @@ from exercise_handler import *
 app = Flask(__name__)
 app.secret_key = "5up6r pup67 56cr67 k6y"
 
-os.environ['GOOGLE_CLIENT_ID'] = 'a'
-os.environ['GOOGLE_CLIENT_SECRET'] = 'a'
 app.config['OAUTH2_PROVIDERS'] = {
     'google': {
-        'client_id': os.environ.get('GOOGLE_CLIENT_ID'),
-        'client_secret': os.environ.get('GOOGLE_CLIENT_SECRET'),
+        'client_id': 'a',
+        'client_secret': 'a',
         'authorize_url': 'https://accounts.google.com/o/oauth2/auth',
         'token_url': 'https://accounts.google.com/o/oauth2/token',
         'userinfo': {
@@ -38,6 +36,10 @@ def load_user(id):
     user = get_user_by_id(id)
     print(user)
     return user
+
+
+def setup():
+    set_count_exercises_for_users()
 
 
 @app.route('/authorize')
@@ -146,7 +148,7 @@ def saved_workout():
 
 @app.route('/upload_exercise', methods=['POST'])
 def upload_exercise():
-    exercise = exercise_handler.exercize(request)
+    exercise = exercise_handler.exercize(request, current_user.id)
     insert_user_exercise_in_db(exercise, current_user.id)
 
     return jsonify({'success': True})
@@ -177,4 +179,5 @@ def get_exercise(id):
 
 
 if __name__ == '__main__':
+    setup()
     app.run(debug=True)
