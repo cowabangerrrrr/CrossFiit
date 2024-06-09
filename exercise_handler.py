@@ -2,7 +2,6 @@ from database import Database
 from exercise import Exercise
 from user import User
 
-MAX_SERIE_NUMBER = 4
 database = Database('data/crossfiit.db')
 database.create_database()
 count_exercises_for_users = {}
@@ -132,3 +131,9 @@ FROM {database.exercises_table_name}
 WHERE user_id != -1
 GROUP BY user_id''', tuple())
     count_exercises_for_users = {pair[0]: pair[1] for pair in data }
+
+def count_serie_number():
+    data = database.select(f'''
+SELECT COUNT( DISTINCT serie )
+FROM {database.exercises_serie_table_name}''', tuple())
+    return data[0][0]

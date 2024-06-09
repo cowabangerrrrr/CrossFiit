@@ -12,6 +12,7 @@ from exercise_handler import *
 
 app = Flask(__name__)
 app.secret_key = "5up6r pup67 56cr67 k6y"
+MAX_SERIE_NUMBER = 1
 
 app.config['OAUTH2_PROVIDERS'] = {
     'google': {
@@ -34,11 +35,12 @@ login.login_view = 'index'
 @login.user_loader
 def load_user(id):
     user = get_user_by_id(id)
-    print(user)
     return user
 
 
 def setup():
+    global MAX_SERIE_NUMBER
+    MAX_SERIE_NUMBER = count_serie_number()
     set_count_exercises_for_users()
 
 
