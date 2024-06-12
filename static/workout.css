@@ -181,12 +181,14 @@ body, html {
     margin: 10px 10px;
 }
 
-.descriptionContainer p {
-    font-size: 24px;
-    width: 95%;
-    text-align: center;
-    margin: 10px 10px; 
-    overflow-wrap: break-word;
+.descriptionContainer pre { 
+    font-size: 1.3rem; 
+    width: 95%; 
+    text-align: left; 
+    margin: 10px 10px;  
+    overflow-wrap: break-word; 
+    white-space: pre-wrap;  
+    word-wrap: break-word; 
 }
 
 .extraExercisesContainer {
