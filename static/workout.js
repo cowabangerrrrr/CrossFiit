@@ -169,7 +169,7 @@ document.querySelector(".save_button").addEventListener("click", async () => {
 
             <div class="descriptionContainer">
                 <h3>Правила выполнения</h3>
-                <p>${exerciseData.description}</p>
+                <pre>${exerciseData.description}</pre>
             </div>
         </div>
         `;
