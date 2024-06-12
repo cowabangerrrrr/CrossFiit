@@ -145,6 +145,7 @@ document.querySelector(".save_button").addEventListener("click", async () => {
 
         const response = await fetch(`/get_exercise/${id}`);
         const exerciseData = await response.json();
+        exerciseData.description = exerciseData.description.replace(/\n/g, '<br/>');
 
         const container = document.createElement("div");
         container.className = "container";
